@@ -78,8 +78,8 @@ def main() -> int:
     ap.add_argument("--anger", type=float, default=0.6)
     ap.add_argument("--quack", type=float, default=1.0)
     ap.add_argument("--volume", type=float, default=0.7)
-    ap.add_argument("--fuzz", choices=["hard", "muff"], default="hard",
-                    help="fuzz voice: hard-clip (DOD-style) or Muff (thick)")
+    ap.add_argument("--fuzz", choices=["hard", "muff"], default="muff",
+                    help="fuzz voice: Muff (thick, default) or hard-clip (DOD-style)")
     ap.add_argument("--bypass", action="store_true")
     ap.add_argument("--tag", default="out", help="output filename tag")
     args = ap.parse_args()

@@ -14,7 +14,7 @@
 * The VCF cutoff is driven by gc = max(cv - vref, 0), the ground-referenced
 * envelope of the RAW split (pre-fuzz dynamics). out = band-pass tap (pre-volume).
 * ---------------------------------------------------------------------------
-.subckt duck in out vref vp vn params: squeal=1 anger=0.6 quack=1 muff=0
+.subckt duck in out vref vp vn params: squeal=1 anger=0.6 quack=1 muff=1
 * input buffer + split node 'sig'
 Xib  in  sig vref vp vn input_buffer
 * --- audio path: fuzz -> octave(blend) -> VCF ---
