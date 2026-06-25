@@ -80,6 +80,8 @@ def main() -> int:
     ap.add_argument("--volume", type=float, default=0.7)
     ap.add_argument("--fuzz", choices=["hard", "muff"], default="muff",
                     help="fuzz voice: Muff (thick, default) or hard-clip (DOD-style)")
+    ap.add_argument("--mode", choices=["lp", "bp", "hp", "mixed"], default="bp",
+                    help="filter mode (Q-Tron style): low/band/high pass or BP+HP mixed")
     ap.add_argument("--bypass", action="store_true")
     ap.add_argument("--tag", default="out", help="output filename tag")
     args = ap.parse_args()
@@ -89,11 +91,14 @@ def main() -> int:
 
     bypass = 1 if args.bypass else 0
     muff = 1 if args.fuzz == "muff" else 0
+    wlp, wbp, whp = {"lp": (1, 0, 0), "bp": (0, 1, 0),
+                     "hp": (0, 0, 1), "mixed": (0, 0.7, 0.7)}[args.mode]
     netlist = (
         NETLIST_HEAD
         + write_pwl_source(seg, sr, args.vpeak)
         + f"\nXp in out vref vcc 0 pedal squeal={args.squeal} anger={args.anger}"
-        + f" quack={args.quack} volume={args.volume} bypass={bypass} muff={muff}\n"
+        + f" quack={args.quack} volume={args.volume} bypass={bypass} muff={muff}"
+        + f" wlp={wlp} wbp={wbp} whp={whp}\n"
         + ".control\n"
         + f"tran {1/sr:.10g} {len(seg)/sr:.6g}\n"
         + f"linearize\n"
@@ -125,7 +130,7 @@ def main() -> int:
     if args.bypass:
         name = f"duck_{args.tag}_BYPASS.wav"          # effect params don't apply
     else:
-        name = (f"duck_{args.tag}_{args.fuzz}_sq{args.squeal}"
+        name = (f"duck_{args.tag}_{args.fuzz}_{args.mode}_sq{args.squeal}"
                 f"_an{args.anger}_qk{args.quack}.wav")
     op = ROOT / "audio" / "out" / name
     wavfile.write(op, sr, (outu * 32767).astype(np.int16))

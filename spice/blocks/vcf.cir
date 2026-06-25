@@ -9,19 +9,24 @@
 *   hp = in - lp - d*bp        (all relative to vref)
 *   bp = (w0/s) hp             (gm-C integrator 1)
 *   lp = (w0/s) bp             (gm-C integrator 2)
-* -> bp/in = w0*s / (s^2 + d*w0*s + w0^2)   : band-pass, peak gain 1/d = Q at w0.
+* The state-variable loop gives all three responses at once:
+*   bp = w0*s/(s^2+d*w0*s+w0^2)  hp = s^2/(...)  lp = w0^2/(...)
+* Q-Tron-style mode is a weighted blend of the taps (wlp/wbp/whp), default = BP.
+* HP/mixed cut the fundamental below the swept corner -> octave more apparent.
 *
 * Quack ganged control:
 *   - sweep depth (drive): passed to the integrators (w0 swept by gc)
 *   - resonance (Q):       d = 1.4 - 1.30*quack  ->  Q ~ 0.7 (CCW) up to ~10 (CW)
 * So Quack CCW = parked, low-Q (effectively off); CW = deep resonant sweep.
 * ---------------------------------------------------------------------------
-.subckt vcf in out gc vref vp vn params: quack=1
+.subckt vcf in out gc vref vp vn params: quack=1 wlp=0 wbp=1 whp=0
 * summer -> high-pass state (ideal summing node, referenced to vref)
 Bhp hp vref V = (V(in)-V(vref)) - (V(lp)-V(vref)) - (1.4-1.30*quack)*(V(bp)-V(vref))
-* two voltage-controlled integrators
+* two voltage-controlled integrators -> band-pass (bp) and low-pass (lp) taps
 Xi1 hp bp gc vref gmint quack={quack}
 Xi2 bp lp gc vref gmint quack={quack}
-* band-pass tap, buffered so downstream loads don't disturb the filter state
-Xob bp out out vp vn opamp
+* mode = weighted blend of LP/BP/HP taps (relative to vref)
+Bmix mo vref V = wlp*(V(lp)-V(vref)) + wbp*(V(bp)-V(vref)) + whp*(V(hp)-V(vref))
+* buffer so downstream loads don't disturb the filter state
+Xob mo out out vp vn opamp
 .ends vcf
