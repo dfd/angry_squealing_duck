@@ -16,7 +16,7 @@
 *  - Rlk sets a finite integrator DC gain (~60) so the loop has a well-defined
 *    operating point; its leak pole (~3 Hz) is far below the audio band.
 * ---------------------------------------------------------------------------
-.subckt gmint inp out gc vref params: quack=1 cint=10n wpark=1257 ksweep=36000
+.subckt gmint inp out gc vref params: quack=1 cint=10n wpark=1257 ksweep=50000
 Bgm  0    out I = {cint}*(wpark + quack*ksweep*max(V(gc),0))*(V(inp)-V(vref))
 Cint out  vref {cint}
 Rlk  out  vref 4.7meg

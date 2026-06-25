@@ -14,15 +14,21 @@
 * The VCF cutoff is driven by gc = max(cv - vref, 0), the ground-referenced
 * envelope of the RAW split (pre-fuzz dynamics). out = band-pass tap (pre-volume).
 * ---------------------------------------------------------------------------
-.subckt duck in out vref vp vn params: squeal=1 anger=0.6 quack=1
+.subckt duck in out vref vp vn params: squeal=1 anger=0.6 quack=1 muff=0
 * input buffer + split node 'sig'
 Xib  in  sig vref vp vn input_buffer
 * --- audio path: fuzz -> octave(blend) -> VCF ---
-Xfz  sig fz  vref vp vn fuzz        anger={anger}
+* fuzz select (muff=0 hard-clip, muff=1 Muff): feed only the chosen fuzz a live
+* signal; the other sees vref (idles, no wasted convergence).
+Bsh  sh 0 V = V(vref) + (1-muff)*(V(sig)-V(vref))
+Bsm  sm 0 V = V(vref) + muff*(V(sig)-V(vref))
+Xfzh sh  fzh vref vp vn fuzz      anger={anger}
+Xfzm sm  fzm vref vp vn fuzz_muff anger={anger}
+Bfz  fz 0 V = V(vref) + (1-muff)*(V(fzh)-V(vref)) + muff*(V(fzm)-V(vref))
 Xoct fz  oc  vref vp vn octave_rect squeal={squeal}
 Xvcf oc  out gc   vref vp vn vcf    quack={quack}
 * --- control path: raw envelope -> ground-referenced cutoff control ---
-* (1.6x sensitivity restores sweep depth lost to averaging vs peak detection)
+* (2.2x sensitivity -> deeper, quackier sweep)
 Xenv sig cv  vref vp vn envfollow
-Bgc  gc  0   V = max(1.6*(V(cv)-V(vref)),0)
+Bgc  gc  0   V = max(2.2*(V(cv)-V(vref)),0)
 .ends duck

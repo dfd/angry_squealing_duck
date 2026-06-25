@@ -30,6 +30,7 @@ NETLIST_HEAD = """* Auto-generated render netlist - Angry Squealing Duck
 .include spice/blocks/fwr.cir
 .include spice/blocks/octave_rect.cir
 .include spice/blocks/fuzz.cir
+.include spice/blocks/fuzz_muff.cir
 .include spice/blocks/gmint.cir
 .include spice/blocks/vcf.cir
 .include spice/blocks/envfollow.cir
@@ -77,6 +78,8 @@ def main() -> int:
     ap.add_argument("--anger", type=float, default=0.6)
     ap.add_argument("--quack", type=float, default=1.0)
     ap.add_argument("--volume", type=float, default=0.7)
+    ap.add_argument("--fuzz", choices=["hard", "muff"], default="hard",
+                    help="fuzz voice: hard-clip (DOD-style) or Muff (thick)")
     ap.add_argument("--bypass", action="store_true")
     ap.add_argument("--tag", default="out", help="output filename tag")
     args = ap.parse_args()
@@ -85,11 +88,12 @@ def main() -> int:
     print(f"segment: {len(seg)} samples @ {sr} Hz = {len(seg)/sr:.2f}s")
 
     bypass = 1 if args.bypass else 0
+    muff = 1 if args.fuzz == "muff" else 0
     netlist = (
         NETLIST_HEAD
         + write_pwl_source(seg, sr, args.vpeak)
         + f"\nXp in out vref vcc 0 pedal squeal={args.squeal} anger={args.anger}"
-        + f" quack={args.quack} volume={args.volume} bypass={bypass}\n"
+        + f" quack={args.quack} volume={args.volume} bypass={bypass} muff={muff}\n"
         + ".control\n"
         + f"tran {1/sr:.10g} {len(seg)/sr:.6g}\n"
         + f"linearize\n"
@@ -121,7 +125,8 @@ def main() -> int:
     if args.bypass:
         name = f"duck_{args.tag}_BYPASS.wav"          # effect params don't apply
     else:
-        name = f"duck_{args.tag}_sq{args.squeal}_an{args.anger}_qk{args.quack}.wav"
+        name = (f"duck_{args.tag}_{args.fuzz}_sq{args.squeal}"
+                f"_an{args.anger}_qk{args.quack}.wav")
     op = ROOT / "audio" / "out" / name
     wavfile.write(op, sr, (outu * 32767).astype(np.int16))
     print(f"wrote {op}")

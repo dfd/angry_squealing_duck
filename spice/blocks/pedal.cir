@@ -7,8 +7,8 @@
 * duck core -> AC-couple -> Volume pot -> output buffer -> bypass mux -> out.
 * True bypass routes the raw input straight to the output when bypass=1.
 * ---------------------------------------------------------------------------
-.subckt pedal in out vref vp vn params: squeal=1 anger=0.6 quack=1 volume=0.7 bypass=0
-Xd   in dout vref vp vn duck squeal={squeal} anger={anger} quack={quack}
+.subckt pedal in out vref vp vn params: squeal=1 anger=0.6 quack=1 volume=0.7 bypass=0 muff=0
+Xd   in dout vref vp vn duck squeal={squeal} anger={anger} quack={quack} muff={muff}
 * AC-couple the core output and re-bias to vref
 Cout dout vs   1u
 Rbi  vs   vref 100k

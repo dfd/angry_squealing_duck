@@ -1,0 +1,41 @@
+* ---------------------------------------------------------------------------
+* fuzz_muff - Big-Muff-style fuzz: cascaded SOFT clipping (op-amp realization)
+*
+* Pins:  in out vref vp vn      params: anger=1   (sustain/gain, 0..1)
+*
+* Two cascaded inverting gain stages, each with diodes ACROSS the feedback
+* resistor (soft clipping) and a feedback cap (~1 kHz low-pass) for the Muff's
+* smooth, mid-focused voicing. Soft clipping in the loop compresses and sustains
+* (thick "wall of fuzz") instead of the spitty single hard clip-to-vref.
+*  - Anger sets stage-1 gain (the "sustain" knob).
+*  - Stage 1 clips ASYMMETRICALLY (0.6V one side, 1.2V the other) -> even
+*    harmonics = warmth/thickness, and more to feed the after-fuzz octave.
+*  - Output low-pass (~2.6 kHz) tames fizz so it reads thick, not harsh.
+* Same interface as fuzz.cir, so the chain swaps hard-clip <-> Muff in one line.
+* ---------------------------------------------------------------------------
+.subckt fuzz_muff in out vref vp vn params: anger=1
+* --- input AC-couple + bias ---
+Cin in  n1   100n
+Rb1 n1  vref 1Meg
+* --- soft-clip stage 1 (gain = Anger), ASYMMETRIC ---
+Ri1 n1  m1   {3.3k + (1-anger)*100k}
+XA1 vref m1  s1  vp vn opamp
+Rf1 m1  s1   100k
+Cf1 m1  s1   1.5n
+Da1  m1 s1   D1N4148          ; + side clips ~0.6V
+Db1a s1 x1   D1N4148          ; - side clips ~1.2V (two in series)
+Db1b x1 m1   D1N4148
+* --- couple to stage 2 ---
+Cc2 s1  n2   100n
+Rb2 n2  vref 1Meg
+* --- soft-clip stage 2 (fixed gain ~10), symmetric ---
+Ri2 n2  m2   10k
+XA2 vref m2  s2  vp vn opamp
+Rf2 m2  s2   100k
+Cf2 m2  s2   1.5n
+Da2 m2  s2   D1N4148
+Db2 s2  m2   D1N4148
+* --- output low-pass (~2.6 kHz) -> smooth top ---
+Rlp s2  out  2.2k
+Clp out vref 27n
+.ends fuzz_muff

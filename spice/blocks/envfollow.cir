@@ -19,8 +19,8 @@
 .subckt envfollow in cv vref vp vn
 Xrec in rabs vref vp vn fwr
 Ra  rabs n1 15k
-Ca  n1   vref 330n          ; pole ~32 Hz
+Ca  n1   vref 220n          ; pole ~48 Hz
 Rb  n1   n2 15k
-Cb  n2   vref 330n          ; pole ~32 Hz (2-pole -> steep ripple rejection)
+Cb  n2   vref 220n          ; pole ~48 Hz (2-pole -> steep ripple rejection)
 Xbuf n2  cv cv vp vn opamp
 .ends envfollow

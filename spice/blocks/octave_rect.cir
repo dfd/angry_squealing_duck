@@ -20,18 +20,19 @@
 * --- octave branch: high-pass coupling into the rectifier core ---
 Chp  in   oin  47n            ; ~680 Hz HP into fwr's ~5k input
 Xrec oin  rabs vref vp vn  fwr
-* --- post-rectifier gentle low-pass (~4 kHz) ---
-Rlp  rabs nlp  10k
-Clp  nlp  vref 3.9n
+* --- post-rectifier gentle low-pass (~4 kHz); low Rlp so the octave isn't
+*     divided down before the Squeal/summer (louder octave) ---
+Rlp  rabs nlp  4.7k
+Clp  nlp  vref 8.2n
 * --- AC-couple off the rectification DC, re-bias to vref ---
 Cc   nlp  oac  1u
 Rb   oac  vref 100k
 * --- Squeal pot (100k): wiper = vref + squeal*(oac-vref) ---
 Rpa  oac  w    {100k*(1-squeal)+1}
 Rpb  w    vref {100k*squeal+1}
-* --- inverting summer: dry (weight 1) + octave wiper (weight ~3 for presence) ---
+* --- inverting summer: dry (weight 1) + octave wiper (weight ~5.5, louder octave) ---
 Rdry in   ns   10k
-Roct w    ns   3.3k
+Roct w    ns   1.8k
 Rf3  ns   out  10k
 XA3  vref ns   out vp vn  opamp
 .ends octave_rect

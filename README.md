@@ -31,7 +31,9 @@ the octave ~30 dB under the fuzz's odd harmonics.)
 
 - Single **9V** supply, **op-amp-buffered 4.5V** virtual ground (`vref`) — a passive
   divider sags under the high-gain fuzz. Every stage input is AC-coupled.
-- **Fuzz** = op-amp gain stage + hard clipping diodes to vref (DOD-250 / Distortion+ / RAT family).
+- **Fuzz** = two voices, selectable (`muff` param): a single-stage hard clipper
+  (DOD-250 / Distortion+ / RAT family, `fuzz.cir`) and a thick Big-Muff-style
+  cascaded soft-clipper with asymmetric stage 1 for warmth (`fuzz_muff.cir`).
 - **Octave** = op-amp precision full-wave rectifier (frequency doubler), no transformer,
   placed *after* the fuzz with a Squeal blend.
 - **Envelope follower** = precision rectifier + 2-pole averaging (not peak-detect, which

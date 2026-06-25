@@ -1,0 +1,23 @@
+* Test bench: Big-Muff fuzz vs current hard-clip fuzz (aggressive voicing pass)
+* Decaying note -> compare SUSTAIN (does output hold level as input decays?) and
+* harmonic richness. Muff (cascaded soft clip) should sustain longer + smoother.
+
+.include spice/lib/opamp.sub
+.include spice/lib/diode.mod
+.include spice/lib/supply.cir
+.include spice/blocks/fuzz.cir
+.include spice/blocks/fuzz_muff.cir
+
+* decaying 330 Hz note centered on vref, 0.25 V initial peak, tau~250ms
+Bin in 0 V = 4.5 + 0.25*exp(-4*time)*sin(6.2832*330*time)
+
+Xh in fh vref vcc 0 fuzz      anger=1
+Xm in fm vref vcc 0 fuzz_muff anger=1
+
+.control
+tran 5u 500m
+linearize
+print v(vref)
+wrdata sim/out/fuzz_muff.csv v(in) v(fh) v(fm)
+.endc
+.end
