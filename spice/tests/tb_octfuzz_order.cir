@@ -1,0 +1,26 @@
+* Test bench: octave AFTER fuzz (Stage re-voice)
+* buffer -> fuzz -> octave_rect.  Symmetric fuzz makes only ODD harmonics, so a
+* strong 2f at squeal=1 (vs ~0 at squeal=0) is the octave-up ring.
+
+.include spice/lib/opamp.sub
+.include spice/lib/diode.mod
+.include spice/lib/supply.cir
+.include spice/blocks/input_buffer.cir
+.include spice/blocks/fwr.cir
+.include spice/blocks/fuzz.cir
+.include spice/blocks/octave_rect.cir
+
+* single note, 330 Hz, 0.2 V peak (AC-coupled by the input buffer)
+Vin in 0 SIN(0 0.2 330)
+
+Xib  in  sig vref vcc 0 input_buffer
+Xfz  sig fz  vref vcc 0 fuzz anger=0.8
+Xo0  fz  off vref vcc 0 octave_rect squeal=0
+Xo1  fz  on  vref vcc 0 octave_rect squeal=1
+
+.control
+tran 5u 120m
+linearize
+wrdata sim/out/octfuzz_order.csv v(fz) v(off) v(on)
+.endc
+.end

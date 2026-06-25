@@ -1,0 +1,26 @@
+* ---------------------------------------------------------------------------
+* fwr - precision full-wave rectifier core (absolute value), vref-referenced
+*
+* Pins:  rin out vref vp vn
+*   out = vref + |rin - vref|     (resistive input, for clean DC behaviour)
+*
+* Two-op-amp absolute-value topology:
+*   A1 = inverting precision half-wave rectifier -> hw = vref - (rin-vref) for
+*        rin>vref, else hw = vref.
+*   A2 = inverting summer, out = vref - [ (rin-vref)*1 + (hw-vref)*2 ].
+* With the half-wave above this reconstructs vref + |rin-vref|.
+* Base resistance R = 10k; the half-wave is summed with weight 2 (R4 = R/2).
+* ---------------------------------------------------------------------------
+.subckt fwr rin out vref vp vn
+* --- A1: inverting half-wave rectifier ---
+R1  rin n1  10k
+Rf1 n1  hw  10k
+XA1 vref n1 a1o vp vn opamp
+D1  a1o n1  D1N4148        ; feedback clamp diode
+D2  hw  a1o D1N4148        ; output steering diode
+* --- A2: inverting summer (dry weight 1, half-wave weight 2) ---
+R3  rin n2  10k
+R4  hw  n2  5k
+Rf2 n2  out 10k
+XA2 vref n2 out vp vn opamp
+.ends fwr

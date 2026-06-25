@@ -1,0 +1,17 @@
+* ---------------------------------------------------------------------------
+* input_buffer - AC-coupled, biased unity-gain buffer feeding the split node
+*
+* Pins:  in out vref vp vn
+*   in   : guitar input (AC, riding on 0V)
+*   out  : buffered output at DC vref, low impedance -> drives both paths
+*   vref : 4.5V virtual ground
+*   vp/vn: supply rails
+*
+* Cin blocks DC and sets a ~1.6 Hz high-pass with Rbias (well below audio).
+* Rin gives a guitar-friendly ~1M input impedance.
+* ---------------------------------------------------------------------------
+.subckt input_buffer in out vref vp vn
+Cin   in   np   100n           ; DC block
+Rin   np   vref 1Meg           ; input impedance + bias to vref
+Xop   np   out  out  vp vn  opamp   ; non-inverting unity buffer
+.ends input_buffer

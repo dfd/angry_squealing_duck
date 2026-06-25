@@ -1,0 +1,28 @@
+* ---------------------------------------------------------------------------
+* duck - the full Angry Squealing Duck signal path (pre-volume)
+*
+* Pins:  in out vref vp vn   params: squeal anger quack
+*
+*   in -> input buffer -> split -+- AUDIO:   fuzz(Anger) -> octave(Squeal) -> VCF
+*                                |                                            ^
+*                                +- CONTROL: envelope follower -> gc ---------+
+*
+* Octave-AFTER-fuzz (Fender Blender / Hoof Reaper pattern): rectifying the
+* already-distorted signal yields a prominent "ring" octave, and Squeal blends
+* plain-fuzz vs octave-fuzz independently of Anger.
+*
+* The VCF cutoff is driven by gc = max(cv - vref, 0), the ground-referenced
+* envelope of the RAW split (pre-fuzz dynamics). out = band-pass tap (pre-volume).
+* ---------------------------------------------------------------------------
+.subckt duck in out vref vp vn params: squeal=1 anger=0.6 quack=1
+* input buffer + split node 'sig'
+Xib  in  sig vref vp vn input_buffer
+* --- audio path: fuzz -> octave(blend) -> VCF ---
+Xfz  sig fz  vref vp vn fuzz        anger={anger}
+Xoct fz  oc  vref vp vn octave_rect squeal={squeal}
+Xvcf oc  out gc   vref vp vn vcf    quack={quack}
+* --- control path: raw envelope -> ground-referenced cutoff control ---
+* (1.6x sensitivity restores sweep depth lost to averaging vs peak detection)
+Xenv sig cv  vref vp vn envfollow
+Bgc  gc  0   V = max(1.6*(V(cv)-V(vref)),0)
+.ends duck

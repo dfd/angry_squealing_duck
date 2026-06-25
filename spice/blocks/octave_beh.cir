@@ -1,0 +1,16 @@
+* ---------------------------------------------------------------------------
+* octave_beh - BEHAVIORAL octave-up + Squeal blend (concept model)
+*
+* Pins:  in out vref      params: squeal=1  (0 = no octave .. 1 = full octave)
+*
+* A full-wave rectifier doubles frequency: |sin(2*pi*f t)| has no fundamental,
+* only DC + even harmonics (2f, 4f, ...). We keep the dry signal and ADD the
+* rectified (octave) signal scaled by Squeal, matching "Squeal = level of the
+* up-octave". Output rides on vref; the next stage AC-couples off the DC.
+*
+* This is the behavioral stand-in used to validate the concept + FFT harness;
+* octave_rect.cir is the buildable op-amp precision-rectifier version.
+* ---------------------------------------------------------------------------
+.subckt octave_beh in out vref params: squeal=1
+Bo out 0 V = V(vref) + (V(in)-V(vref)) + squeal*abs(V(in)-V(vref))
+.ends octave_beh

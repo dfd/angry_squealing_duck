@@ -1,0 +1,12 @@
+* ---------------------------------------------------------------------------
+* supply - 9V single rail + BUFFERED 4.5V virtual ground. Include at a test
+* bench's top level (plain elements, not a subckt). Requires opamp.sub.
+*   vcc  : 9V rail        vn for the opamps = node 0 (GND)
+*   vref : 4.5V virtual ground, op-amp buffered so it can source/sink mA without
+*          sagging when the high-gain fuzz dumps current into it.
+* ---------------------------------------------------------------------------
+Vcc   vcc  0    DC 9
+R1    vcc  nref 100k
+R2    nref 0    100k
+Cref  nref 0    47u
+Xvref nref vref vref vcc 0 opamp   ; unity buffer: +in=nref, -in=out=vref

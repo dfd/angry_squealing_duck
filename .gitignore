@@ -1,0 +1,16 @@
+# Python / uv
+.venv/
+__pycache__/
+*.pyc
+
+# Large source recordings (the committable DI lives in audio/in/di_sample.wav)
+raw_wavs/
+
+# Sim outputs
+sim/out/
+
+# Rendered audio (keep source recordings, ignore generated)
+audio/out/
+
+# ngspice scratch
+*.raw

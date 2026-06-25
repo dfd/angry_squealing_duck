@@ -1,0 +1,28 @@
+* Test bench: octave -> fuzz interaction (Stage 3)
+* Does the 2f octave survive symmetric hard clipping?
+*   v(noct) - squeal=0 -> fuzz: baseline, no octave going in
+*   v(oct)  - squeal=1 -> fuzz: octave (2f) should still be present alongside
+*             the fuzz's odd harmonics.
+
+.include spice/lib/opamp.sub
+.include spice/lib/diode.mod
+.include spice/lib/supply.cir
+.include spice/blocks/fwr.cir
+.include spice/blocks/octave_rect.cir
+.include spice/blocks/fuzz.cir
+
+Vin in 0 SIN(4.5 0.1 880)
+
+* no-octave chain
+Xo0 in a0 vref vcc 0 octave_rect squeal=0
+Xf0 a0 noct vref vcc 0 fuzz anger=1
+* octave chain
+Xo1 in a1 vref vcc 0 octave_rect squeal=1
+Xf1 a1 oct vref vcc 0 fuzz anger=1
+
+.control
+tran 5u 100m
+linearize
+wrdata sim/out/stage03_octfuzz.csv v(noct) v(oct)
+.endc
+.end

@@ -1,0 +1,22 @@
+* Test bench: envelope follower (Stage 4)
+* Stimulus: two decaying "plucks" (damped 220 Hz). Expect cv to jump up fast on
+* each attack and decay with the note, tracking the envelope (not the carrier).
+
+.include spice/lib/opamp.sub
+.include spice/lib/diode.mod
+.include spice/lib/supply.cir
+.include spice/blocks/fwr.cir
+.include spice/blocks/envfollow.cir
+
+* pluck 1 at t=0 (amp 0.4, decay tau~167ms); pluck 2 at t=300ms (amp 0.25)
+Bin in 0 V = 4.5 + 0.4*sin(6.2832*220*time)*exp(-6*time)
++ + (time>0.3)*0.25*sin(6.2832*220*(time-0.3))*exp(-9*(time-0.3))
+
+Xenv in cv vref vcc 0 envfollow
+
+.control
+tran 20u 600m
+linearize
+wrdata sim/out/stage04_env.csv v(in) v(cv)
+.endc
+.end

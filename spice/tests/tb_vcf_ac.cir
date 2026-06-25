@@ -1,0 +1,30 @@
+* Test bench: VCF band-pass response vs control (Stage 5)
+* Sweep the ground-referenced control gc; each .ac run should show a band-pass
+* peak whose center climbs with gc (the envelope-driven sweep), at high Q (quack=1).
+*   gc=0   -> parked ~200 Hz;  gc=0.1 ~770;  gc=0.2 ~1350;  gc=0.4 ~2490 Hz
+
+.include spice/lib/opamp.sub
+.include spice/lib/supply.cir
+.include spice/blocks/gmint.cir
+.include spice/blocks/vcf.cir
+
+Vin in 0 DC 4.5 AC 1
+Vgc gc 0 DC 0
+
+Xf in out gc vref vcc 0 vcf quack=1
+
+.control
+alter Vgc 0
+ac dec 200 20 20k
+wrdata sim/out/stage05_ac_park.csv vdb(out)
+alter Vgc 0.1
+ac dec 200 20 20k
+wrdata sim/out/stage05_ac_lo.csv vdb(out)
+alter Vgc 0.2
+ac dec 200 20 20k
+wrdata sim/out/stage05_ac_mid.csv vdb(out)
+alter Vgc 0.4
+ac dec 200 20 20k
+wrdata sim/out/stage05_ac_hi.csv vdb(out)
+.endc
+.end

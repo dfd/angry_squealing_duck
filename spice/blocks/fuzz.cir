@@ -1,0 +1,27 @@
+* ---------------------------------------------------------------------------
+* fuzz - op-amp gain stage + hard-clipping diodes (DOD-250 / Distortion+ family)
+*
+* Pins:  in out vref vp vn     params: anger=1   (0 = ~clean .. 1 = full fuzz)
+*
+* Non-inverting gain stage: AC gain = 1 + Rf/Rg.  Cg blocks DC so the DC gain is
+* 1 and the output stays biased at vref. Anger sets Rg:
+*   anger=0 -> Rg ~ 1.005M -> gain ~ 2     (nearly clean)
+*   anger=1 -> Rg ~ 4.7k   -> gain ~ 214   (slams the diodes -> full fuzz)
+* Cg/Rg also high-passes the path feeding the clipper (tightens low end at high
+* gain) - corner ~340 Hz at max gain; tunable by ear later.
+*
+* The amplified signal hits an anti-parallel 1N4148 pair to vref through Rs,
+* hard-clipping the output to ~+/-0.6 V around vref.
+* ---------------------------------------------------------------------------
+.subckt fuzz in out vref vp vn params: anger=1
+Cin in  ni  100n                    ; AC-couple input -> breaks DC loop
+Rbi ni  vref 1Meg                   ; bias gain stage to vref locally
+XA1 ni  fb  amp vp vn  opamp        ; non-inverting gain stage
+Rf  amp fb  1Meg
+Cg  fb  rg  100n                    ; DC block on the gain-set leg
+Rg  rg  vref {4.7k + (1-anger)*1Meg}
+* hard clipper: series R into anti-parallel diodes to vref
+Rs  amp out 2.2k
+Dc1 out vref D1N4148
+Dc2 vref out D1N4148
+.ends fuzz

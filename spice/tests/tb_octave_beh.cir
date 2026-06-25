@@ -1,0 +1,20 @@
+* Test bench: behavioral octave-up + Squeal blend (Stage 2, concept)
+* Expect: squeal=0 -> spectrum is pure 220 Hz (dry).
+*         squeal=1 -> strong 440 Hz (octave) appears alongside 220 Hz.
+
+.include spice/lib/opamp.sub
+.include spice/lib/supply.cir
+.include spice/blocks/octave_beh.cir
+
+* signal centered on vref (4.5V), as it will be after the input buffer
+Vin in 0 SIN(4.5 0.1 220)
+
+Xoff in oct_off vref octave_beh squeal=0
+Xon  in oct_on  vref octave_beh squeal=1
+
+.control
+tran 10u 100m
+linearize
+wrdata sim/out/stage02_beh.csv v(oct_off) v(oct_on)
+.endc
+.end

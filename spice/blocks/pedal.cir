@@ -1,0 +1,22 @@
+* ---------------------------------------------------------------------------
+* pedal - top-level Angry Squealing Duck: duck core + Volume + true-bypass
+*
+* Pins:  in out vref vp vn
+*   params: squeal anger quack volume   (all 0..1)   bypass (0=effect, 1=bypass)
+*
+* duck core -> AC-couple -> Volume pot -> output buffer -> bypass mux -> out.
+* True bypass routes the raw input straight to the output when bypass=1.
+* ---------------------------------------------------------------------------
+.subckt pedal in out vref vp vn params: squeal=1 anger=0.6 quack=1 volume=0.7 bypass=0
+Xd   in dout vref vp vn duck squeal={squeal} anger={anger} quack={quack}
+* AC-couple the core output and re-bias to vref
+Cout dout vs   1u
+Rbi  vs   vref 100k
+* Volume pot: wiper = vref + volume*(vs-vref)
+Rpa  vs   vw   {100k*(1-volume)+1}
+Rpb  vw   vref {100k*volume+1}
+* output buffer
+Xob  vw   volo volo vp vn opamp
+* true-bypass mux (raw input when bypass=1)
+Bmux out  0    V = bypass*V(in) + (1-bypass)*V(volo)
+.ends pedal

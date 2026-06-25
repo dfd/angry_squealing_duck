@@ -1,0 +1,25 @@
+* Test bench: fuzz (Anger) sweep (Stage 3)
+* Expect: anger=0 -> ~clean (mostly 1f). anger=1 -> hard clip: strong odd
+* harmonics (3f,5f,7f), output clamped near +/-0.6 V around vref.
+
+.include spice/lib/opamp.sub
+.include spice/lib/diode.mod
+.include spice/lib/supply.cir
+.include spice/blocks/fuzz.cir
+
+* 220 Hz, 0.1 V peak, centered on vref
+Vin in 0 SIN(4.5 0.1 220)
+
+Xcln in f_clean vref vcc 0 fuzz anger=0
+Xmid in f_mid   vref vcc 0 fuzz anger=0.5
+Xful in f_full  vref vcc 0 fuzz anger=1
+
+.control
+tran 5u 100m
+linearize
+meas tran clean_pp PP v(f_clean) from=20m to=100m
+meas tran mid_pp   PP v(f_mid)   from=20m to=100m
+meas tran full_pp  PP v(f_full)  from=20m to=100m
+wrdata sim/out/stage03_fuzz.csv v(f_clean) v(f_mid) v(f_full)
+.endc
+.end

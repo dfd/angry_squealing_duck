@@ -1,0 +1,37 @@
+* ---------------------------------------------------------------------------
+* octave_rect - buildable octave-up + Squeal blend
+*
+* Pins:  in out vref vp vn      params: squeal=1   (0 = dry only .. 1 = full octave)
+*
+* Octave branch:  in -HP-> fwr(|x|) -LP-> AC-couple -> Squeal pot -+
+* Dry branch:     in --------------------------------------------- +--summer--> out
+*
+*   HP (Chp into the rectifier's ~5k input)  ~680 Hz: feeds the rectifier a
+*      treble-forward signal so the octave tracks cleanly (less splatter).
+*   LP (Rlp/Clp)                             ~4 kHz : tames rectifier hash
+*      BEFORE the fuzz (the downstream Qtron can't undo fuzz intermod).
+*   AC-couple (Cc/Rb) strips the rectifier's |x| DC term before mixing.
+*   Squeal pot blends the octave level against the always-present dry signal.
+*
+* Output is inverted (single inverting summer) - irrelevant ahead of a fuzz,
+* and dry/octave keep correct RELATIVE phase since both pass the same summer.
+* ---------------------------------------------------------------------------
+.subckt octave_rect in out vref vp vn params: squeal=1
+* --- octave branch: high-pass coupling into the rectifier core ---
+Chp  in   oin  47n            ; ~680 Hz HP into fwr's ~5k input
+Xrec oin  rabs vref vp vn  fwr
+* --- post-rectifier gentle low-pass (~4 kHz) ---
+Rlp  rabs nlp  10k
+Clp  nlp  vref 3.9n
+* --- AC-couple off the rectification DC, re-bias to vref ---
+Cc   nlp  oac  1u
+Rb   oac  vref 100k
+* --- Squeal pot (100k): wiper = vref + squeal*(oac-vref) ---
+Rpa  oac  w    {100k*(1-squeal)+1}
+Rpb  w    vref {100k*squeal+1}
+* --- inverting summer: dry (weight 1) + octave wiper (weight ~3 for presence) ---
+Rdry in   ns   10k
+Roct w    ns   3.3k
+Rf3  ns   out  10k
+XA3  vref ns   out vp vn  opamp
+.ends octave_rect

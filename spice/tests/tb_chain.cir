@@ -1,0 +1,33 @@
+* Test bench: full chain (Stage 6)
+* A decaying, harmonically-rich pluck. Expectations:
+*   - vref stays at 4.5 (whole pedal stable, no latch)
+*   - output is alive and centered on vref
+*   - as the note decays (envelope falls), the band-pass center slides DOWN, so
+*     the output spectral centroid should DROP from the attack to the tail
+*     (the envelope-filter "quack").
+
+.include spice/lib/opamp.sub
+.include spice/lib/diode.mod
+.include spice/lib/supply.cir
+.include spice/blocks/input_buffer.cir
+.include spice/blocks/fwr.cir
+.include spice/blocks/octave_rect.cir
+.include spice/blocks/fuzz.cir
+.include spice/blocks/gmint.cir
+.include spice/blocks/vcf.cir
+.include spice/blocks/envfollow.cir
+.include spice/blocks/duck.cir
+
+* pluck: 165 Hz (E3-ish) with harmonics, decaying tau~250ms, 0.3 V peak
+Bin in 0 V = 0.3*exp(-4*time)*(sin(6.2832*165*time)
++ + 0.5*sin(6.2832*330*time) + 0.25*sin(6.2832*495*time))
+
+Xd in out vref vcc 0 duck squeal=1 anger=0.6 quack=1
+
+.control
+tran 20u 500m
+linearize
+print v(vref)
+wrdata sim/out/stage06_chain.csv v(in) v(out) v(xd.cv) v(xd.gc)
+.endc
+.end

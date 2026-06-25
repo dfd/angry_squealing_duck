@@ -1,0 +1,22 @@
+* Test bench: input buffer (Stage 1)
+* Expect: out DC ~ 4.5V, out_pp ~ in_pp (unity buffering, clean).
+
+.include spice/lib/opamp.sub
+.include spice/lib/supply.cir
+.include spice/blocks/input_buffer.cir
+
+* Stimulus: 220 Hz (A3), 0.1 V peak ~ typical single-coil pickup level
+Vin in 0 DC 0 SIN(0 0.1 220)
+
+Xdut in out vref vcc 0 input_buffer
+
+.control
+op
+print v(vref) v(out)
+tran 20u 40m
+meas tran in_pp  PP  v(in)  from=20m to=40m
+meas tran out_pp PP  v(out) from=20m to=40m
+meas tran out_dc AVG v(out) from=20m to=40m
+wrdata sim/out/stage01.csv v(in) v(out)
+.endc
+.end

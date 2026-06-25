@@ -1,0 +1,28 @@
+* Test bench: buildable octave-up + Squeal blend (Stage 2)
+* Tone above the ~680 Hz HP so the rectifier is well-fed.
+*   v(rabs)    - rectifier-only octave: expect 2f dominant, 1f/3f ~ 0 (symmetry)
+*   v(oct_off) - squeal=0: dry only (1f)
+*   v(oct_on)  - squeal=1: dry (1f) + octave (2f)
+
+.include spice/lib/opamp.sub
+.include spice/lib/diode.mod
+.include spice/lib/supply.cir
+.include spice/blocks/fwr.cir
+.include spice/blocks/octave_rect.cir
+
+* 880 Hz (A5), 0.1 V peak, centered on vref (as after the input buffer)
+Vin in 0 SIN(4.5 0.1 880)
+
+* rectifier-only tap: same HP feeding a bare fwr
+Chp2 in oin2 47n
+Xrec oin2 rabs vref vcc 0 fwr
+
+Xoff in oct_off vref vcc 0 octave_rect squeal=0
+Xon  in oct_on  vref vcc 0 octave_rect squeal=1
+
+.control
+tran 5u 100m
+linearize
+wrdata sim/out/stage02_rect.csv v(rabs) v(oct_off) v(oct_on)
+.endc
+.end

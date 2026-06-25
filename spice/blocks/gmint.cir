@@ -1,0 +1,23 @@
+* ---------------------------------------------------------------------------
+* gmint - behavioral OTA gm-C integrator (voltage-controlled cutoff)
+*
+* Pins:  inp out gc vref      params: quack, cint, wpark, ksweep
+*
+* Models an OTA (transconductance gm) driving an integrating cap Cint:
+*   Cint * dV(out)/dt = gm * (V(inp) - V(vref))      ->   dV/dt = w0 * (inp-vref)
+* with the corner (filter cutoff) controlled by a GROUND-REFERENCED control gc:
+*   w0 = gm/Cint = wpark + quack*ksweep*max(V(gc), 0)        gc >= 0, 0 = parked
+*
+* Two deliberate robustness choices:
+*  - output current is sourced from ground (the rails), never from vref - a real
+*    OTA does not load the virtual ground with its output current.
+*  - cutoff control is gc (ground referenced), NOT (cv - vref). Tying gm to vref
+*    made the high-gain loop latch into a spurious collapsed-vref DC solution.
+*  - Rlk sets a finite integrator DC gain (~60) so the loop has a well-defined
+*    operating point; its leak pole (~3 Hz) is far below the audio band.
+* ---------------------------------------------------------------------------
+.subckt gmint inp out gc vref params: quack=1 cint=10n wpark=1257 ksweep=36000
+Bgm  0    out I = {cint}*(wpark + quack*ksweep*max(V(gc),0))*(V(inp)-V(vref))
+Cint out  vref {cint}
+Rlk  out  vref 4.7meg
+.ends gmint

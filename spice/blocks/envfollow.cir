@@ -1,0 +1,26 @@
+* ---------------------------------------------------------------------------
+* envfollow - envelope follower for the Quack VCF control voltage
+*
+* Pins:  in cv vref vp vn
+*   in : RAW split (pre-fuzz) - full picking dynamics, centered on vref
+*   cv : control voltage, cv = vref + envelope(|in-vref|), buffered
+*
+* Full-wave precision rectifier (reuse fwr, no diode dead-zone) -> two-pole RC
+* averaging filter -> buffer. Averaging (not peak-detect) is deliberate: the
+* earlier precision peak detector hunted in a ~12 Hz limit cycle (op-amp
+* saturates when its diode is reverse-biased, then slew-recovers), which made
+* the filter "re-trigger" on held notes. A linear averaging filter cannot do
+* that and rejects the 2f rectifier ripple cleanly.
+*
+* Two poles ~22 Hz: 2f ripple (>=300 Hz) is cut >300x; envelope attack ~25 ms
+* (snappy enough for the quack, smooth on sustain). Asymmetric attack/release
+* can be added later if more spank is wanted.
+* ---------------------------------------------------------------------------
+.subckt envfollow in cv vref vp vn
+Xrec in rabs vref vp vn fwr
+Ra  rabs n1 15k
+Ca  n1   vref 330n          ; pole ~32 Hz
+Rb  n1   n2 15k
+Cb  n2   vref 330n          ; pole ~32 Hz (2-pole -> steep ripple rejection)
+Xbuf n2  cv cv vp vn opamp
+.ends envfollow

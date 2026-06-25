@@ -1,0 +1,19 @@
+* Test bench: full-wave rectifier core transfer curve (Stage 2)
+* Expect out = vref + |rin - vref|: a clean V, min 4.5V at rin=4.5, rising
+* symmetrically to ~5.0V at rin=4.0 and rin=5.0.
+
+.include spice/lib/opamp.sub
+.include spice/lib/diode.mod
+.include spice/blocks/fwr.cir
+
+Vcc  vcc  0 9
+Vref vref 0 4.5
+Vin  rin  0 4.5
+
+Xr rin out vref vcc 0 fwr
+
+.control
+dc Vin 4.0 5.0 0.01
+wrdata sim/out/fwr_dc.csv v(out)
+.endc
+.end
