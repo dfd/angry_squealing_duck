@@ -1,0 +1,45 @@
+* ---------------------------------------------------------------------------
+* vcf_real - voltage-controlled state-variable band-pass, REAL LM13700 OTAs
+*
+* Pins:  in out gc vref vp vn   params: quack=1 wlp=0 wbp=1 whp=0
+*                                        katt=50 cint=10n ipark=32.5u kcv=1.29m
+*
+* Same Chamberlin SVF as the behavioral vcf.cir, but the two integrators are
+* real LM13700 OTAs (lm13700.sub) with op-amp output buffers:
+*   hp = in - lp - d*bp                       (op-amp summer; d=1/Q, Q=0.7+2.8*quack)
+*   bp = (gm/(katt*s*Cint)) * hp              (OTA1 + cap + buffer)
+*   lp = (gm/(katt*s*Cint)) * bp              (OTA2 + cap + buffer)
+*   gm = Iabc/(2*Vt),  Iabc = ipark + quack*kcv*gc  (envelope -> bias current)
+*   -> w0 = Iabc/(2*Vt*katt*Cint) matches vcf.cir's wpark + quack*ksweep*gc.
+*
+* The OTA's bare linear range is ~+/-50 mV, so each integrator input is attenuated
+* /katt (49k:1k) to keep the OTA linear; the buffered output is full-scale. (The
+* real build would use the LM13700 linearizing diodes for headroom/SNR instead of
+* such heavy attenuation -- modeled here as attenuation; revisit if it distorts.)
+* Iabc is injected by a current source standing in for the envelope-driven
+* transistor current source (Q-Tron style).
+* ---------------------------------------------------------------------------
+* NOTE: defines .subckt vcf (same name/interface as the behavioral vcf.cir) so it
+* is a drop-in -- include THIS file instead of vcf.cir for the real-parts chain.
+.subckt vcf in out gc vref vp vn params: quack=1 wlp=0 wbp=1 whp=0 katt=50 cint=10n ipark=32.5u kcv=1.29m
+* envelope -> bias current for both OTAs (matched, so they track)
+Biabc1 0 iab1 I = max(ipark + quack*kcv*V(gc), 1u)
+Biabc2 0 iab2 I = max(ipark + quack*kcv*V(gc), 1u)
+* summer -> high-pass state
+Bhp hp vref V = (V(in)-V(vref)) - (V(lp)-V(vref)) - (1/(0.7+2.8*quack))*(V(bp)-V(vref))
+* --- integrator 1 (band-pass tap bp) ---
+Ra1  hp a1   {(katt-1)*1k}
+Rb1  a1 vref 1k
+Xo1  a1 vref iab1 i1 vref ota
+Cc1  i1 vref {cint}
+Xbf1 i1 bp bp vp vn opamp
+* --- integrator 2 (low-pass tap lp) ---
+Ra2  bp a2   {(katt-1)*1k}
+Rb2  a2 vref 1k
+Xo2  a2 vref iab2 i2 vref ota
+Cc2  i2 vref {cint}
+Xbf2 i2 lp lp vp vn opamp
+* --- mode-blended output ---
+Bmix mo vref V = wlp*(V(lp)-V(vref)) + wbp*(V(bp)-V(vref)) + whp*(V(hp)-V(vref))
+Xob  mo out out vp vn opamp
+.ends vcf

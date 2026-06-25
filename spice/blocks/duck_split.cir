@@ -13,7 +13,7 @@
 *   octsweep=0 (HYBRID):   octave -> fixed HP (steady, bright, no sweep)
 * The unused octave filter is fed vref (idles). Body always band-pass (quacks).
 * ---------------------------------------------------------------------------
-.subckt duck_split in out vref vp vn params: squeal=1 anger=0.6 quack=1 muff=1 goct=2.5 octsweep=1
+.subckt duck_split in out vref vp vn params: squeal=1 anger=0.6 quack=1 muff=1 goct=8 octsweep=1
 Xib  in  sig vref vp vn input_buffer
 * --- fuzz select (muff=0 hard, muff=1 Muff): only the chosen one sees live signal ---
 Bsh  sh 0 V = V(vref) + (1-muff)*(V(sig)-V(vref))
@@ -27,8 +27,13 @@ Bgc  gc 0 V = max(2.2*(V(cv)-V(vref)),0)
 * --- BODY: fuzz -> band-pass envelope filter ---
 Xvb  fz  bodyf gc vref vp vn vcf quack={quack} wlp=0 wbp=1 whp=0
 * --- OCTAVE: generate octave (Squeal) -> makeup gain ---
+* octave_gen already scales by squeal (linear); the extra *squeal here makes the
+* level QUADRATIC in Squeal: gentle "ring on top" at mid-knob, octave-DOMINANT
+* at full CW. goct=8 sets the max -> ~+9 dB octave-over-body on real playing
+* (di_sample), ~+5 dB on low-register material. Calibrated on real DI clips via
+* sim/octave_balance.py, NOT a single test note (which over-reads the octave ~6 dB).
 Xog  fz  octv vref vp vn octave_gen squeal={squeal}
-Bocg ocg 0 V = V(vref) + goct*(V(octv)-V(vref))
+Bocg ocg 0 V = V(vref) + goct*squeal*(V(octv)-V(vref))
 * route octave: swept HP-vcf (octsweep=1) or fixed HP (octsweep=0); gate the unused one
 Bvhin vhin 0 V = V(vref) + octsweep*(V(ocg)-V(vref))
 Bvfin vfin 0 V = V(vref) + (1-octsweep)*(V(ocg)-V(vref))

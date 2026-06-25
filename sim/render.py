@@ -24,6 +24,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 NETLIST_HEAD = """* Auto-generated render netlist - Angry Squealing Duck
 .include spice/lib/opamp.sub
+.include spice/lib/lm13700.sub
 .include spice/lib/diode.mod
 .include spice/lib/supply.cir
 .include spice/blocks/input_buffer.cir
@@ -89,9 +90,12 @@ def main() -> int:
                     help="octave routing experiment (instantiates the duck-level block "
                          "directly): mixed=1 filter (BP+HP taps); hybrid=body BP + octave "
                          "fixed HP; parallel=body BP + octave swept HP")
-    ap.add_argument("--goct", type=float, default=2.5, help="octave makeup level (split routes)")
+    ap.add_argument("--goct", type=float, default=8.0, help="octave makeup max (split routes)")
     ap.add_argument("--bypass", action="store_true")
+    ap.add_argument("--real", action="store_true",
+                    help="use the TL07x-faithful op-amp model (opamp_real.sub)")
     ap.add_argument("--tag", default="out", help="output filename tag")
+    ap.add_argument("--subdir", default="", help="output subfolder under audio/out/")
     args = ap.parse_args()
 
     sr, seg = load_segment(args.wav, args.start, args.dur)
@@ -110,38 +114,9 @@ def main() -> int:
     else:                                        # split: hybrid / parallel
         octsweep = 1 if args.route == "parallel" else 0
         xline = f"Xp in out vref vcc 0 duck_split {common} goct={args.goct} octsweep={octsweep}"
-    netlist = (
-        NETLIST_HEAD
-        + write_pwl_source(seg, sr, args.vpeak)
-        + "\n" + xline + "\n"
-        + ".control\n"
-        + f"tran {1/sr:.10g} {len(seg)/sr:.6g}\n"
-        + f"linearize\n"
-        + "wrdata sim/out/render.csv v(out)\n"
-        + ".endc\n.end\n"
-    )
-    nl_path = ROOT / "sim" / "out" / "render.cir"
-    (ROOT / "sim" / "out").mkdir(parents=True, exist_ok=True)
-    nl_path.write_text(netlist)
 
-    print("running ngspice...")
-    t0 = time.time()
-    proc = subprocess.run(["ngspice", "-b", str(nl_path)], cwd=ROOT,
-                          capture_output=True, text=True)
-    print(f"ngspice done in {time.time()-t0:.1f}s")
-    if "error" in proc.stderr.lower() or proc.returncode != 0:
-        sys.stderr.write(proc.stderr[-2000:])
-        return 1
-
-    d = np.loadtxt(ROOT / "sim" / "out" / "render.csv")
-    t, out = d[:, 0], d[:, 1]
-    out = out - np.mean(out)            # remove vref DC
-    out /= (np.max(np.abs(out)) or 1.0) * 1.05   # normalize, small headroom
-    # resample onto a uniform sr grid (linearize already uniform, but be safe)
-    n = int(round((t[-1] - t[0]) * sr))
-    tu = t[0] + np.arange(n) / sr
-    outu = np.interp(tu, t, out)
-    (ROOT / "audio" / "out").mkdir(parents=True, exist_ok=True)
+    # output filename computed up front so the scratch files are unique per render
+    # (-> safe to run many renders in parallel; no shared render.cir/render.csv)
     if args.bypass:
         name = f"duck_{args.tag}_BYPASS.wav"          # effect params don't apply
     elif args.route is not None:
@@ -150,8 +125,53 @@ def main() -> int:
     else:
         name = (f"duck_{args.tag}_{args.fuzz}_{args.mode}_sq{args.squeal}"
                 f"_an{args.anger}_qk{args.quack}.wav")
-    op = ROOT / "audio" / "out" / name
+    stem = name[:-4]
+    (ROOT / "sim" / "out").mkdir(parents=True, exist_ok=True)
+    nl_path = ROOT / "sim" / "out" / f"{stem}.cir"
+    csv_path = ROOT / "sim" / "out" / f"{stem}.csv"
+
+    if args.real:                          # real parts: TL072 op-amp + LM13700 filter
+        head = (NETLIST_HEAD
+                .replace("spice/lib/opamp.sub", "spice/lib/opamp_real.sub")
+                .replace("spice/blocks/vcf.cir", "spice/blocks/vcf_real.cir"))
+    else:
+        head = NETLIST_HEAD
+    netlist = (
+        head
+        + write_pwl_source(seg, sr, args.vpeak)
+        + "\n" + xline + "\n"
+        + ".control\n"
+        + f"tran {1/sr:.10g} {len(seg)/sr:.6g}\n"
+        + "linearize\n"
+        + f"wrdata sim/out/{stem}.csv v(out)\n"
+        + ".endc\n.end\n"
+    )
+    nl_path.write_text(netlist)
+
+    print("running ngspice...")
+    t0 = time.time()
+    proc = subprocess.run(["ngspice", "-b", str(nl_path)], cwd=ROOT,
+                          capture_output=True, text=True)
+    print(f"ngspice done in {time.time()-t0:.1f}s")
+    if "error" in proc.stderr.lower() or proc.returncode != 0 or not csv_path.exists():
+        sys.stderr.write(proc.stderr[-2000:])
+        nl_path.unlink(missing_ok=True)
+        return 1
+
+    d = np.loadtxt(csv_path)
+    t, out = d[:, 0], d[:, 1]
+    out = out - np.mean(out)            # remove vref DC
+    out /= (np.max(np.abs(out)) or 1.0) * 1.05   # normalize, small headroom
+    # resample onto a uniform sr grid (linearize already uniform, but be safe)
+    n = int(round((t[-1] - t[0]) * sr))
+    tu = t[0] + np.arange(n) / sr
+    outu = np.interp(tu, t, out)
+    outdir = ROOT / "audio" / "out" / args.subdir
+    outdir.mkdir(parents=True, exist_ok=True)
+    op = outdir / name
     wavfile.write(op, sr, (outu * 32767).astype(np.int16))
+    nl_path.unlink(missing_ok=True)     # tidy up scratch files
+    csv_path.unlink(missing_ok=True)
     print(f"wrote {op}")
     return 0
 

@@ -1,0 +1,26 @@
+* ---------------------------------------------------------------------------
+* opamp (TL07x-faithful macromodel) - real-part build-accuracy variant
+*
+* Pins:  inp inn out vp vn    (same interface as the ideal opamp.sub)
+*
+* Captures the TL07x non-idealities that matter for this build, which the ideal
+* opamp.sub omits:
+*   - DC gain ~2e5 (106 dB)
+*   - GBW ~3 MHz   (ideal model used 10 MHz)  -> high-gain fuzz stages roll off sooner
+*   - slew rate ~13 V/us (current-limited input stage)
+*   - output swings only to ~1.5 V from each rail (NOT rail-to-rail) -> less headroom
+*   - JFET inputs: no input bias current (already true of the ideal model)
+*
+* Swap in via render.py --real (or include this instead of opamp.sub). Keep
+* opamp.sub for the behavioral reference.
+* ---------------------------------------------------------------------------
+.subckt opamp inp inn out vp vn
+* gm input stage = 1 mS, current-limited to +/-0.69 mA (sets slew = I/Cp = 13 V/us)
+Bg 0 p I = 0.69m*tanh((V(inp)-V(inn))*1m/0.69m)
+Rp p 0 200meg           ; DC gain = gm*Rp = 1m*200meg = 2e5
+Cp p 0 53p              ; GBW = gm/(2*pi*Cp) ~ 3 MHz
+* output stage: TL07x swings to ~1.5 V from each rail
+Bo o 0 V = (V(vp)+V(vn))/2 + ((V(vp)-V(vn))/2-1.5)
++          * tanh( (V(p)-(V(vp)+V(vn))/2) / ((V(vp)-V(vn))/2-1.5) )
+Ro o out 75
+.ends opamp

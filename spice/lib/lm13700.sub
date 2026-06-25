@@ -1,0 +1,27 @@
+* ---------------------------------------------------------------------------
+* lm13700 (ota) - LM13700 dual-OTA core macromodel (instantiate 2x for the SVF)
+*
+* Pins:  vp vn iabc iout vref
+*   vp/vn : differential inputs
+*   iabc  : amplifier bias-current pin (sits ~1.2 V above vee; drive via a
+*           resistor from the control voltage). gm is set by the current INTO it.
+*   iout  : current output (high impedance); a cap iout->vref forms a gm-C integrator
+*   vref  : reference the output resistance / cap returns to
+*
+* Faithful behaviour:
+*   Iout = Iabc * tanh((vp-vn)/(2*Vt)),  gm = Iabc/(2*Vt),  Vt = 25.85 mV @ 27 C
+*   => bare differential linear range is only ~+/-50 mV (the diff-pair tanh).
+*      Larger signals need input attenuation or the chip's linearizing diodes.
+*   Output current is sourced from the rail (node 0 = vee), NOT vref, so it does
+*   not load the virtual ground. Ro = finite OTA output resistance.
+* ---------------------------------------------------------------------------
+.model DBIAS D(IS=1e-14 N=1)
+.subckt ota vp vn iabc iout vref
+* sense the bias current; the pin sits ~2 diode drops above vee (=0)
+Vsense iabc nb 0
+Db1 nb  nbm DBIAS
+Db2 nbm 0   DBIAS
+* transconductance: Iout = Iabc * tanh((vp-vn)/(2*Vt)), sourced from the rail
+Biout iout 0 I = -I(Vsense)*tanh((V(vp)-V(vn))/51.7m)
+Ro    iout vref 2meg
+.ends ota
