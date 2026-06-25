@@ -1,0 +1,13 @@
+* ---------------------------------------------------------------------------
+* hpf - buffered 1st-order fixed high-pass (for the hybrid octave path)
+*
+* Pins:  in out vref vp vn      params: fc=350   (corner Hz)
+*
+* Series cap + shunt-to-vref resistor = high-pass; corner = 1/(2*pi*R*C).
+* Keeps the octave steadily bright (no envelope sweep) when routed here.
+* ---------------------------------------------------------------------------
+.subckt hpf in out vref vp vn params: fc=350
+Chf in  n1   22n
+Rhf n1  vref {1/(6.2832*fc*22n)}
+Xob n1  out  out vp vn opamp
+.ends hpf

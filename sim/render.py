@@ -29,12 +29,15 @@ NETLIST_HEAD = """* Auto-generated render netlist - Angry Squealing Duck
 .include spice/blocks/input_buffer.cir
 .include spice/blocks/fwr.cir
 .include spice/blocks/octave_rect.cir
+.include spice/blocks/octave_gen.cir
+.include spice/blocks/hpf.cir
 .include spice/blocks/fuzz.cir
 .include spice/blocks/fuzz_muff.cir
 .include spice/blocks/gmint.cir
 .include spice/blocks/vcf.cir
 .include spice/blocks/envfollow.cir
 .include spice/blocks/duck.cir
+.include spice/blocks/duck_split.cir
 .include spice/blocks/pedal.cir
 """
 
@@ -82,6 +85,11 @@ def main() -> int:
                     help="fuzz voice: Muff (thick, default) or hard-clip (DOD-style)")
     ap.add_argument("--mode", choices=["lp", "bp", "hp", "mixed"], default="bp",
                     help="filter mode (Q-Tron style): low/band/high pass or BP+HP mixed")
+    ap.add_argument("--route", choices=["mixed", "hybrid", "parallel"], default=None,
+                    help="octave routing experiment (instantiates the duck-level block "
+                         "directly): mixed=1 filter (BP+HP taps); hybrid=body BP + octave "
+                         "fixed HP; parallel=body BP + octave swept HP")
+    ap.add_argument("--goct", type=float, default=2.5, help="octave makeup level (split routes)")
     ap.add_argument("--bypass", action="store_true")
     ap.add_argument("--tag", default="out", help="output filename tag")
     args = ap.parse_args()
@@ -93,12 +101,19 @@ def main() -> int:
     muff = 1 if args.fuzz == "muff" else 0
     wlp, wbp, whp = {"lp": (1, 0, 0), "bp": (0, 1, 0),
                      "hp": (0, 0, 1), "mixed": (0, 0.7, 0.7)}[args.mode]
+    common = (f"squeal={args.squeal} anger={args.anger} quack={args.quack} muff={muff}")
+    if args.route is None:                       # normal: full pedal (volume + bypass)
+        xline = (f"Xp in out vref vcc 0 pedal {common} volume={args.volume}"
+                 f" bypass={bypass} wlp={wlp} wbp={wbp} whp={whp}")
+    elif args.route == "mixed":                  # one filter, BP+HP tap blend
+        xline = f"Xp in out vref vcc 0 duck {common} wlp=0 wbp=0.7 whp=0.7"
+    else:                                        # split: hybrid / parallel
+        octsweep = 1 if args.route == "parallel" else 0
+        xline = f"Xp in out vref vcc 0 duck_split {common} goct={args.goct} octsweep={octsweep}"
     netlist = (
         NETLIST_HEAD
         + write_pwl_source(seg, sr, args.vpeak)
-        + f"\nXp in out vref vcc 0 pedal squeal={args.squeal} anger={args.anger}"
-        + f" quack={args.quack} volume={args.volume} bypass={bypass} muff={muff}"
-        + f" wlp={wlp} wbp={wbp} whp={whp}\n"
+        + "\n" + xline + "\n"
         + ".control\n"
         + f"tran {1/sr:.10g} {len(seg)/sr:.6g}\n"
         + f"linearize\n"
@@ -129,6 +144,9 @@ def main() -> int:
     (ROOT / "audio" / "out").mkdir(parents=True, exist_ok=True)
     if args.bypass:
         name = f"duck_{args.tag}_BYPASS.wav"          # effect params don't apply
+    elif args.route is not None:
+        name = (f"duck_{args.tag}_{args.route}_{args.fuzz}"
+                f"_sq{args.squeal}_an{args.anger}_qk{args.quack}.wav")
     else:
         name = (f"duck_{args.tag}_{args.fuzz}_{args.mode}_sq{args.squeal}"
                 f"_an{args.anger}_qk{args.quack}.wav")

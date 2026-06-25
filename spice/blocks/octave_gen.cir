@@ -1,0 +1,22 @@
+* ---------------------------------------------------------------------------
+* octave_gen - octave-up ONLY (no dry-body blend)
+*
+* Pins:  in out vref vp vn      params: squeal=1   (0 = silent .. 1 = full octave)
+*
+* Same octave branch as octave_rect.cir (HP -> full-wave rectify -> gentle LP ->
+* AC-couple -> Squeal pot) but it outputs the octave ALONE, buffered, so it can be
+* filtered on its own path (duck_split). The dry fuzz body is routed separately.
+* Makeup level for the octave is applied where it's summed (duck_split `goct`).
+* Reuses fwr.cir.
+* ---------------------------------------------------------------------------
+.subckt octave_gen in out vref vp vn params: squeal=1
+Chp  in   oin  47n            ; HP into the rectifier (treble-forward -> clean octave)
+Xrec oin  rabs vref vp vn fwr
+Rlp  rabs nlp  3.3k           ; post-rectifier gentle LP (~4 kHz)
+Clp  nlp  vref 12n
+Cc   nlp  oac  1u             ; strip the rectification DC
+Rb   oac  vref 100k
+Rpa  oac  w    {100k*(1-squeal)+1}   ; Squeal pot: wiper = vref + squeal*(oac-vref)
+Rpb  w    vref {100k*squeal+1}
+Xob  w    out  out vp vn opamp        ; unity buffer
+.ends octave_gen
