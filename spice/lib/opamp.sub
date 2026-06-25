@@ -3,20 +3,26 @@
 *
 * Pins:  inp inn out vp vn
 *   inp/inn : non-inverting / inverting inputs (infinite Zin, no bias current)
-*   out     : low-impedance output, clamped to the supply rails
+*   out     : low-impedance output, smoothly saturated to the supply rails
 *   vp/vn   : positive / negative supply rails (e.g. vp=9V, vn=0V single supply)
 *
-* DC gain ~ 100k, one dominant pole -> GBW ~ 10 MHz. Output saturates ~0.2V
-* from each rail. Good enough to lock topology/voicing; swap for a real TL072
-* model at the build-accuracy stage.
+* Transconductance input stage (gm = 1 mS) into a dominant-pole RC, then a
+* smooth tanh output limiter. DC gain = gm*Rp = 1e5, pole ~100 Hz -> GBW ~10 MHz.
+*
+* Why transconductance + tanh (not an ideal high-gain source + min/max clamp):
+* an ideal-source gain node swings x1e5 *instantaneously* when its input moves,
+* so a fast audio transient on vref gives effectively infinite dV/dt and the
+* transient timestep collapses ("timestep too small"). A gm-into-cap node has
+* bounded dV/dt, and tanh has continuous derivatives at the rails - both keep
+* the integrator happy under hard clipping/rectification transients.
 * ---------------------------------------------------------------------------
 .subckt opamp inp inn out vp vn
-* differential gain into internal node g
-Bg   g 0   V = 100e3*(V(inp)-V(inn))
-* dominant pole: f = 1/(2*pi*1k*1.6u) ~ 100 Hz  ->  GBW = 100k * 100 ~ 10 MHz
-Rp   g p   1k
-Cp   p 0   1.6u
-* output stage: follow p, clamp to within 0.2V of the rails
-Bo   o 0   V = min(max(V(p), V(vn)+0.2), V(vp)-0.2)
+* gm input stage -> dominant-pole RC (gain node is a cap: bounded dV/dt)
+Bg   0 p   I = (V(inp)-V(inn))*1e-3
+Rp   p 0   100meg
+Cp   p 0   16p              ; pole ~100 Hz, GBW ~10 MHz
+* smooth rail-limited output buffer (unity slope in the linear region)
+Bo   o 0   V = (V(vp)+V(vn))/2 + ((V(vp)-V(vn))/2 - 0.2)
++              * tanh( (V(p) - (V(vp)+V(vn))/2) / ((V(vp)-V(vn))/2 - 0.2) )
 Ro   o out 75
 .ends opamp
