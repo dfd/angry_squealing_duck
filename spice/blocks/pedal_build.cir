@@ -26,9 +26,9 @@ Xenv sig cv vref vp vn envfollow
 Rvo1 vcc nvoff 100k
 Rvo2 nvoff 0   23k                ; Vpark ~1.68 V (above TL072 floor)
 Xvof nvoff voff voff vp vn opamp  ; buffer Vpark (low-Z for the pot)
-Rdi  vref ni   10k
-Rdf  ni   ectl 110k               ; gain 11, FIXED (matched with Rdk) -> good CMRR
-Rdj  cv   pi   10k
+Rdi  vref ni   1.5k
+Rdf  ni   ectl 110k               ; gain ~73 (envelope is tiny ~0.04V); matched w/ Rdk
+Rdj  cv   pi   1.5k
 Rdk  pi   voff 110k
 Xdif pi   ni   ectl vp vn opamp   ; ectl = voff + 11*(cv-vref) = full-sweep control
 Rqa  voff vbp  {100k*quack+1}     ; Quack-sweep pot: wiper = voff + quack*(ectl-voff)
