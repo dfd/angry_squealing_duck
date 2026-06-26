@@ -63,9 +63,9 @@ Ref,Val,Package,PosX,PosY,Rot,Side
 "R27","100k","R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical",35.000000,-100.000000,0.000000,top
 "R28","100k","R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical",44.000000,-100.000000,0.000000,top
 "R29","22k","R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical",53.000000,-100.000000,0.000000,top
-"R30","10k","R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical",71.000000,-100.000000,0.000000,top
+"R30","1.5k","R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical",71.000000,-100.000000,0.000000,top
 "R31","110k","R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical",80.000000,-100.000000,0.000000,top
-"R32","10k","R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical",71.000000,-91.000000,0.000000,top
+"R32","1.5k","R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical",71.000000,-91.000000,0.000000,top
 "R33","110k","R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical",62.000000,-100.000000,0.000000,top
 "R34","10k","R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical",89.000000,-100.000000,0.000000,top
 "R35","10k","R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical",98.000000,-100.000000,0.000000,top

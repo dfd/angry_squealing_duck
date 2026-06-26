@@ -63,12 +63,15 @@ Design, voicing, real-part validation, **and a routed KiCad PCB are complete.**
 | ✅ | Voiced by ear on real guitar (MOTU M2), grid of Squeal×Anger×Quack rendered |
 | ✅ | Real part models (TL072 + LM13700) — chain converges, voicing holds |
 | ✅ | All-real buildable netlist (`pedal_build.cir`, no B-sources) — re-validated |
+| ✅ | Quack sweep restored: V-to-I gain ×73 → body cutoff ~280 Hz→2.1 kHz, auditioned-good |
 | ✅ | KiCad PCB: placed, auto-routed, **DRC-clean**, gerbers exported |
 
+**Quack note:** the real envelope is tiny (~0.04 V peak), so the V-to-I needs high gain
+(`Rdi`/`Rdj` = 1.5k, `Rdf`/`Rdk` = 110k → ×73) for the filter to sweep. Quack is most
+audible at lower Squeal — at full Squeal the octave sits on top by design.
+
 **Known residual:** 4 benign `starved_thermal` DRC advisories on crowded GND pads
-(fully connected to the pour; clear them with a solid-connection click in pcbnew if
-desired). The buildable Quack voicing has minor sweep-depth drift vs the behavioral
-model — un-auditioned by ear.
+(fully connected to the pour; clear them with a solid-connection click in pcbnew if desired).
 
 ## Layout
 

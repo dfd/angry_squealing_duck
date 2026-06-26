@@ -1606,7 +1606,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "1.5k"
 			(at 1.27 2.37 0)
 			(layer "F.Fab")
 			(uuid "88f7146f-c8f4-45b0-880d-c5df3b9f864d")
@@ -8396,7 +8396,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "1.5k"
 			(at 1.27 2.37 0)
 			(layer "F.Fab")
 			(uuid "cceb31fc-9b40-415d-bf9d-344e5ed71168")

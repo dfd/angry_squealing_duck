@@ -190,7 +190,7 @@ rvo1[1] += VCC; rvo1[2] += nvoff; rvo2[1] += nvoff; rvo2[2] += GND
 buf(nvoff, VOFF)                              # buffer Vpark
 # difference amp: ECTL = VOFF + 11*(CV-VREF)
 od, md, pd = amp()
-rdi = R("10k"); rdf = R("110k"); rdj = R("10k"); rdk = R("110k")
+rdi = R("1.5k"); rdf = R("110k"); rdj = R("1.5k"); rdk = R("110k")  # V-to-I gain ~73
 ni = Net(); pi_ = Net()
 rdi[1] += VREF; rdi[2] += ni; rdf[1] += ni; rdf[2] += ECTL
 rdj[1] += CV;   rdj[2] += pi_; rdk[1] += pi_; rdk[2] += VOFF
