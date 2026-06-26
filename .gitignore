@@ -14,3 +14,7 @@ audio/out/
 
 # ngspice scratch
 *.raw
+
+# Editor cruft (VS Code Local History extension creates .history/ with its own .git)
+.history/
+.vscode/

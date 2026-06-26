@@ -55,15 +55,20 @@ Key voicing decisions (each one earned the hard way — see `git log` / memory):
 
 ## Status
 
-Design, voicing, and **real-part validation are complete**. Next milestone: **KiCad**
-schematic + PCB (translate the validated SPICE blocks to real footprints + switching).
+Design, voicing, real-part validation, **and a routed KiCad PCB are complete.**
 
 | done | |
 |---|---|
 | ✅ | All blocks designed + integrated (input buffer → fuzz → octave → filter → volume) |
 | ✅ | Voiced by ear on real guitar (MOTU M2), grid of Squeal×Anger×Quack rendered |
 | ✅ | Real part models (TL072 + LM13700) — chain converges, voicing holds |
-| ⬜ | KiCad schematic + PCB |
+| ✅ | All-real buildable netlist (`pedal_build.cir`, no B-sources) — re-validated |
+| ✅ | KiCad PCB: placed, auto-routed, **DRC-clean**, gerbers exported |
+
+**Known residual:** 4 benign `starved_thermal` DRC advisories on crowded GND pads
+(fully connected to the pour; clear them with a solid-connection click in pcbnew if
+desired). The buildable Quack voicing has minor sweep-depth drift vs the behavioral
+model — un-auditioned by ear.
 
 ## Layout
 
@@ -77,7 +82,33 @@ schematic + PCB (translate the validated SPICE blocks to real footprints + switc
   `fft_report.py`, `spicelib.py`, `extract_sample.py`
 - `audio/in/`     — committed DI samples; `audio/out/` — rendered WAVs (git-ignored)
 - `raw_wavs/`     — large source recordings (git-ignored)
-- `kicad/`        — schematic + PCB (next phase)
+- `kicad/`        — the board, generated programmatically:
+  - `duck.py` (SKiDL netlist generator) → `duck.net` (ERC-clean) + `BOM.md`
+  - `build_pcb.py` (pcbnew: parse netlist → place → board) ; `finish_pcb.py` (values + GND pour)
+  - `duck.kicad_pcb` (routed, DRC-clean) ; `gerbers/` + `duck.drl` + `duck-pos.csv` (fab-ready)
+  - `pedal_build.cir` in `spice/blocks/` is the all-real buildable schematic-of-record
+
+## KiCad / PCB workflow
+
+The board is generated entirely by script (no GUI), bridging two Pythons because
+`pcbnew` is built for system Python 3.14 while the sim harness uses uv's 3.13:
+```
+# 1. netlist (uv / 3.13)
+KICAD8_SYMBOL_DIR=/usr/share/kicad/symbols uv run kicad/duck.py     # -> duck.net (+ ERC)
+# 2. place + board (system python 3.14, needs pcbnew)
+/usr/bin/python3 kicad/build_pcb.py                                 # -> duck.kicad_pcb
+# 3. route: export DSN, run freerouting (needs a display, e.g. :0), import SES
+/usr/bin/python3 -c "import pcbnew,sys; b=pcbnew.LoadBoard('kicad/duck.kicad_pcb'); pcbnew.ExportSpecctraDSN(b,'/tmp/duck.dsn')"
+DISPLAY=:0 java -jar freerouting.jar -de /tmp/duck.dsn -do /tmp/duck.ses -mp 14
+/usr/bin/python3 -c "import pcbnew; b=pcbnew.LoadBoard('kicad/duck.kicad_pcb'); pcbnew.ImportSpecctraSES(b,'/tmp/duck.ses'); pcbnew.SaveBoard('kicad/duck.kicad_pcb',b)"
+# 4. finishing pass (snap values + GND pour) + checks + fab outputs
+/usr/bin/python3 kicad/finish_pcb.py
+kicad-cli pcb drc kicad/duck.kicad_pcb
+kicad-cli pcb export gerbers --output kicad/gerbers/ kicad/duck.kicad_pcb
+```
+Board: 2-layer, 175×120 mm (1590DD-class), 6× TL074 + 1× LM13700 + 14× 1N4148,
+4 knobs (Volume / Anger / Squeal / Quack-dual-gang). No graphical schematic
+(eeschema has no scripting API) — `pedal_build.cir` + `duck.py` are the design-of-record.
 
 ## Workflow
 

@@ -1,7 +1,9 @@
 WARNING: KICAD7_SYMBOL_DIR environment variable is missing, so the default KiCad symbol libraries won't be searched. @ [/home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap_external>:1026=>/home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap>:488]
+WARNING: KICAD9_SYMBOL_DIR environment variable is missing, so the default KiCad symbol libraries won't be searched. @ [/home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap_external>:1026=>/home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap>:488]
 WARNING: KICAD_SYMBOL_DIR environment variable is missing, so the default KiCad symbol libraries won't be searched. @ [/home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap_external>:1026=>/home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap>:488]
 WARNING: KICAD6_SYMBOL_DIR environment variable is missing, so the default KiCad symbol libraries won't be searched. @ [/home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap_external>:1026=>/home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap>:488]
 WARNING: fp-lib-table file was not found. Component footprints are not available.
 WARNING: fp-lib-table file was not found. Component footprints are not available.
 WARNING: fp-lib-table file was not found. Component footprints are not available.
 WARNING: fp-lib-table file was not found. Component footprints are not available.
+ERROR: Unable to find part R_Potentiometer_Dual_Ganged in library Device. @ [/home/dave/dev/angry_squealing_duck/<stdin>:5]
