@@ -1,0 +1,56 @@
+* ---------------------------------------------------------------------------
+* pedal_build - ALL-REAL buildable Angry Squealing Duck (Muff fuzz + hybrid)
+*
+* Pins:  in out vref vp vn   params: squeal anger quack volume
+*
+* No behavioral B-source shortcuts: every block is a real op-amp/OTA/diode circuit,
+* so this maps 1:1 to KiCad. Hardcoded to the locked voicing = Muff fuzz + hybrid
+* route (body -> BP envelope filter, octave -> fixed HP), envelope -> Iabc via a
+* real V-to-I (control op-amp + the LM13700 bias resistors in vcf_build).
+*
+* Quack is a DUAL-GANG pot: one section sets the V-to-I gain (sweep depth, the
+* {110k*quack} resistors), the other sets the filter damping/Q (inside vcf_build).
+* Squeal / Anger / Volume are single pots. (Squeal should be an audio/log taper for
+* the gentle->blast feel the behavioral quadratic modeled.)
+* ---------------------------------------------------------------------------
+.subckt pedal_build in out vref vp vn params: squeal=1 anger=0.8 quack=1 volume=0.7
+* === input buffer + split node 'sig' ===
+Xib in sig vref vp vn input_buffer
+* === fuzz (Muff) ===
+Xfz sig fz vref vp vn fuzz_muff anger={anger}
+* === envelope follower (raw split) -> cv ===
+Xenv sig cv vref vp vn envfollow
+* === V-to-I: crossfade Quack-sweep (dual-gang sec 1) parked<->full-sweep ===
+* Vpark (buffered) = parked cutoff; difference amp = full-sweep control voltage;
+* the Quack-sweep pot crossfades between them, then a buffer drives vbias.
+Rvo1 vcc nvoff 100k
+Rvo2 nvoff 0   23k                ; Vpark ~1.68 V (above TL072 floor)
+Xvof nvoff voff voff vp vn opamp  ; buffer Vpark (low-Z for the pot)
+Rdi  vref ni   10k
+Rdf  ni   ectl 110k               ; gain 11, FIXED (matched with Rdk) -> good CMRR
+Rdj  cv   pi   10k
+Rdk  pi   voff 110k
+Xdif pi   ni   ectl vp vn opamp   ; ectl = voff + 11*(cv-vref) = full-sweep control
+Rqa  voff vbp  {100k*quack+1}     ; Quack-sweep pot: wiper = voff + quack*(ectl-voff)
+Rqb  vbp  ectl {100k*(1-quack)+1}
+Xvbb vbp  vbias vbias vp vn opamp ; buffer wiper -> vbias
+* === BODY: fuzz -> band-pass filter (externally biased) ===
+Xvb  fz   bodyf vbias vref vp vn vcf_build quack={quack}
+* === OCTAVE: full octave -> x8 makeup -> Squeal pot -> fixed HP ===
+Xog  fz   octv vref vp vn octave_gen squeal=1
+Rmf  ocg  mfb 70k
+Rmg  mfb  vref 10k
+Xmk  octv mfb ocg vp vn opamp       ; non-inverting x8: ocg = vref + 8*(octv-vref)
+Rsa  ocg  sw  {100k*(1-squeal)+1}   ; Squeal pot (level)
+Rsb  sw   vref {100k*squeal+1}
+Xhf  sw   octf vref vp vn hpf
+* === summer: body + octave (inverting, unity each) ===
+Rua  bodyf nsum 22k
+Rub  octf  nsum 22k
+Ruf  nsum  opre 22k
+Xsm  vref  nsum opre vp vn opamp
+* === volume pot -> output buffer ===
+Rxa  opre vw  {100k*(1-volume)+1}
+Rxb  vw   vref {100k*volume+1}
+Xvol vw   out out vp vn opamp
+.ends pedal_build

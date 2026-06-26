@@ -1,0 +1,45 @@
+* ---------------------------------------------------------------------------
+* vcf_build - ALL-REAL LM13700 band-pass (no B-sources), external bias
+*
+* Pins:  in out vbias vref vp vn   params: quack katt cint rabc
+*
+* Real state-variable band-pass: op-amp inverter + op-amp inverting summer feed
+* two NON-inverting OTA-C integrators; band-pass tap = bp, buffered.
+*   hp = in - lp - d*bp        (summer; d = 1/Q via the Quack-Q resistor Rq)
+*   bp = +(w0/s) hp ; lp = +(w0/s) bp   (OTA integrators, w0 = gm/(katt*Cint))
+*   gm = Iabc/(2Vt), Iabc = (vbias - Vpin)/rabc  (external V-to-I drives vbias)
+* OTA inputs are attenuated /katt (49k:1k) to stay in the ~+/-50mV linear range.
+* Quack-Q section: Rq = 10k*(0.7+2.8*quack) -> Q = 0.7..3.5  (dual-gang with the
+* V-to-I sweep-depth pot in pedal_build).
+* ---------------------------------------------------------------------------
+.subckt vcf_build in out vbias vref vp vn params: quack=1 katt=50 cint=10n rabc=10k
+* external bias -> each OTA bias pin
+Rab1 vbias iab1 {rabc}
+Rab2 vbias iab2 {rabc}
+* --- inverter: in_inv = 2*vref - in  (unity inverting around vref) ---
+Rinv1 in   nii 10k
+Rinv2 nii  iinv 10k
+Xinv vref nii iinv vp vn opamp
+* --- inverting summer -> hp = vref + (in-vref) - (lp-vref) - d*(bp-vref) ---
+Rs_in iinv ns 10k
+Rs_lp lp   ns 10k
+* Rq = 7k + (Qpot || 40k): dual-gang sec 2, a 100k pot paralleled to 40k so Q
+* spans ~0.7..3.6 (the 100k matches the Quack-sweep pot value -> one dual-gang part)
+Rs_bp bp   ns {7k + (100k*quack*40k)/(100k*quack+40k+1)}
+Rs_f  ns   hp 10k
+Xsum vref ns hp vp vn opamp
+* --- integrator 1 (non-inverting) -> band-pass tap bp ---
+Ra1  hp a1   {(katt-1)*1k}
+Rb1  a1 vref 1k
+Xo1  a1 vref iab1 i1 vref ota
+Cc1  i1 vref {cint}
+Xbf1 i1 bp bp vp vn opamp
+* --- integrator 2 (non-inverting) -> low-pass tap lp ---
+Ra2  bp a2   {(katt-1)*1k}
+Rb2  a2 vref 1k
+Xo2  a2 vref iab2 i2 vref ota
+Cc2  i2 vref {cint}
+Xbf2 i2 lp lp vp vn opamp
+* --- band-pass output (buffered) ---
+Xob  bp out out vp vn opamp
+.ends vcf_build

@@ -36,9 +36,11 @@ NETLIST_HEAD = """* Auto-generated render netlist - Angry Squealing Duck
 .include spice/blocks/fuzz_muff.cir
 .include spice/blocks/gmint.cir
 .include spice/blocks/vcf.cir
+.include spice/blocks/vcf_build.cir
 .include spice/blocks/envfollow.cir
 .include spice/blocks/duck.cir
 .include spice/blocks/duck_split.cir
+.include spice/blocks/pedal_build.cir
 .include spice/blocks/pedal.cir
 """
 
@@ -94,6 +96,8 @@ def main() -> int:
     ap.add_argument("--bypass", action="store_true")
     ap.add_argument("--real", action="store_true",
                     help="use the TL07x-faithful op-amp model (opamp_real.sub)")
+    ap.add_argument("--build", action="store_true",
+                    help="render the all-real buildable pedal_build (Muff+hybrid, no B-sources)")
     ap.add_argument("--tag", default="out", help="output filename tag")
     ap.add_argument("--subdir", default="", help="output subfolder under audio/out/")
     args = ap.parse_args()
@@ -119,6 +123,9 @@ def main() -> int:
     # (-> safe to run many renders in parallel; no shared render.cir/render.csv)
     if args.bypass:
         name = f"duck_{args.tag}_BYPASS.wav"          # effect params don't apply
+    elif args.build:
+        name = (f"duck_{args.tag}_build_sq{args.squeal}"
+                f"_an{args.anger}_qk{args.quack}.wav")
     elif args.route is not None:
         name = (f"duck_{args.tag}_{args.route}_{args.fuzz}"
                 f"_sq{args.squeal}_an{args.anger}_qk{args.quack}.wav")
@@ -130,7 +137,11 @@ def main() -> int:
     nl_path = ROOT / "sim" / "out" / f"{stem}.cir"
     csv_path = ROOT / "sim" / "out" / f"{stem}.csv"
 
-    if args.real:                          # real parts: TL072 op-amp + LM13700 filter
+    if args.build:                         # buildable: pedal_build uses vcf_build directly
+        head = NETLIST_HEAD.replace("spice/lib/opamp.sub", "spice/lib/opamp_real.sub")
+        xline = (f"Xp in out vref vcc 0 pedal_build squeal={args.squeal}"
+                 f" anger={args.anger} quack={args.quack} volume={args.volume}")
+    elif args.real:                        # real parts: TL072 op-amp + LM13700 filter
         head = (NETLIST_HEAD
                 .replace("spice/lib/opamp.sub", "spice/lib/opamp_real.sub")
                 .replace("spice/blocks/vcf.cir", "spice/blocks/vcf_real.cir"))
