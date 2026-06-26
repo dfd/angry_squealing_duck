@@ -26,6 +26,7 @@ FP_R     = "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 FP_Cf    = "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm"      # film
 FP_Ce    = "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm"          # electrolytic
 FP_D     = "Diode_THT:D_DO-35_SOD27_P2.54mm_Vertical_AnodeUp"   # compact vertical mount
+FP_DPWR  = "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"        # power diode (1N5817)
 FP_POT   = "Potentiometer_THT:Potentiometer_Alps_RK097_Single_Horizontal"
 FP_POT2  = "Potentiometer_THT:Potentiometer_Alps_RK097_Dual_Horizontal"   # dual-gang
 FP_JACK  = "Connector_Audio:Jack_6.35mm_Neutrik_NJ3FD-V_Vertical"
@@ -70,10 +71,12 @@ def buf(in_net, out_net):
 #  POWER SUPPLY  (supply.cir)  - 9V in, buffered 4.5V VREF
 # ============================================================
 DC = Part("Connector", "Barrel_Jack", footprint=FP_DC, ref="J3")
-Dpr = Di()                                   # reverse-polarity protection (upgrade to 1N5817)
+Dpr = Part("Diode", "1N5817", footprint=FP_DPWR)   # Schottky reverse-protection (low drop)
 NRAW = Net("VRAW")
-DC[1] += NRAW; DC[2] += GND                   # 1=center, 2=sleeve (set polarity by jack)
-Dpr[1] += VCC; Dpr[2] += NRAW                 # A->K : VRAW -> VCC (blocks reverse)
+# CENTER-NEGATIVE (Boss/standard pedal supply): center pin = GND, sleeve = +9V.
+# Verify against your jack's pinout; the Schottky below blocks damage if reversed.
+DC[1] += GND; DC[2] += NRAW                    # pin1 = center (GND), pin2 = sleeve (+9V)
+Dpr[2] += NRAW; Dpr[1] += VCC                  # anode=VRAW -> cathode=VCC (series protection)
 Cps = Ce("100u"); Cps[1] += VCC; Cps[2] += GND
 r1 = R("100k"); r2 = R("100k"); cref = Ce("47u")
 NREF = Net("NREF")
@@ -109,9 +112,10 @@ def muff_stage(n_in, n_out, ri_part, rf_val):
     rf[1] += m; rf[2] += o
     cf[1] += m; cf[2] += o
     da = Di(); dba = Di(); dbb = Di(); x = Net()
-    da[2] += m;  da[1] += o            # + side ~0.6V (A=o? Da m s -> anode m,cath s) : m->o
-    dba[1] += o; dba[2] += x           # - side: s->x->m (two series)
-    dbb[1] += x; dbb[2] += m
+    # 1N4148 pin1=K(cathode), pin2=A(anode). Match SPICE fuzz_muff.cir exactly:
+    da[2] += m;  da[1] += o            # Da1 m1 s1 : anode=m, cathode=o   (1-diode side)
+    dba[2] += o; dba[1] += x           # Db1a s1 x1: anode=o, cathode=x   (2-diode side,
+    dbb[2] += x; dbb[1] += m           # Db1b x1 m1: anode=x, cathode=m    series o->x->m)
     o += n_out                          # stage output = o (== s)
 # stage 1: Ri1 = 2.2k + Anger pot (rheostat)
 N1 = Net("FZ1")
@@ -146,8 +150,8 @@ def fwr(rin_net, out_net):
     n1 = Net(); n2 = Net(); hw = Net()
     a = R("10k"); a[1] += rin_net; a[2] += n1
     rf1 = R("10k"); rf1[1] += n1; rf1[2] += hw
-    d1 = Di(); d1[1] += o1; d1[2] += n1        # feedback clamp (A=o1->K=n1)
-    d2 = Di(); d2[1] += hw; d2[2] += o1        # steering (A=hw->K=o1)
+    d1 = Di(); d1[2] += o1; d1[1] += n1        # SPICE D1 a1o n1: anode=o1, cathode=n1
+    d2 = Di(); d2[2] += hw; d2[1] += o1        # SPICE D2 hw a1o: anode=hw, cathode=o1
     m1 += n1
     r3 = R("10k"); r3[1] += rin_net; r3[2] += n2
     r4 = R("4.7k");  r4[1] += hw; r4[2] += n2
@@ -188,7 +192,7 @@ VOFF = Net("VOFF"); ECTL = Net("ECTL"); VBIAS = Net("VBIAS")
 rvo1 = R("100k"); rvo2 = R("22k"); nvoff = Net()
 rvo1[1] += VCC; rvo1[2] += nvoff; rvo2[1] += nvoff; rvo2[2] += GND
 buf(nvoff, VOFF)                              # buffer Vpark
-# difference amp: ECTL = VOFF + 11*(CV-VREF)
+# difference amp: ECTL = VOFF + 73*(CV-VREF)  (gain set by Rdf/Rdi = 110k/1.5k)
 od, md, pd = amp()
 rdi = R("1.5k"); rdf = R("110k"); rdj = R("1.5k"); rdk = R("110k")  # V-to-I gain ~73
 ni = Net(); pi_ = Net()
@@ -293,6 +297,12 @@ U6 = TL[5]; U6[12] += VREF; U6[13] += U6[14]
 U7[7] += GND; U7[10] += GND
 for _pin in (U7[8], U7[9], U7[2], U7[15]):
     _pin.do_erc = False
+
+# per-IC supply decoupling: 0.1uF from V+ -> GND at each chip, placed beside it on the
+# board (kills the oscillation/noise risk on this high-gain 7-IC design)
+for U in TL:
+    dcap = Cf("100n"); dcap[1] += U[4]; dcap[2] += GND     # TL074 V+ = pin 4
+dcap7 = Cf("100n"); dcap7[1] += U7[11]; dcap7[2] += GND    # LM13700 V+ = pin 11
 
 ERC()
 generate_netlist(file_="kicad/duck.net")

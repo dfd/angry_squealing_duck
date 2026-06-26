@@ -8,7 +8,8 @@
 - 4x 100k: RV1, RV2, RV3, RV4
 
 ## Diodes (14)
-- 14x 1N4148: D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14
+- 13x 1N4148: D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14
+- 1x 1N5817: D1
 
 ## Resistors (52)
 - 16x 10k: R14, R15, R16, R18, R21, R22, R23, R25, R34, R35, R36, R37, R38, R39, R40, R48
@@ -28,8 +29,8 @@
 - 1x 6.8k: R41
 - 1x 39k: R42
 
-## Capacitors (18)
-- 4x 100n: C3, C4, C6, C8
+## Capacitors (25)
+- 11x 100n: C3, C4, C6, C8, C19, C20, C21, C22, C23, C24, C25
 - 3x 1.5n: C5, C7, C9
 - 2x 220n: C11, C12
 - 2x 10n: C16, C17

@@ -6,203 +6,217 @@ WARNING: fp-lib-table file was not found. Component footprints are not available
 WARNING: fp-lib-table file was not found. Component footprints are not available.
 WARNING: fp-lib-table file was not found. Component footprints are not available.
 WARNING: fp-lib-table file was not found. Component footprints are not available.
-WARNING: Missing tag on TL074 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:49.
-WARNING: Random tag fFgFKeu6jC generated for TL074.
-WARNING: Missing tag on TL074 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:49.
-WARNING: Random tag S8ebCz54ib generated for TL074.
-WARNING: Missing tag on TL074 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:49.
-WARNING: Random tag 4aiePwTQ4U generated for TL074.
-WARNING: Missing tag on TL074 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:49.
-WARNING: Random tag aBFcjoRWBX generated for TL074.
-WARNING: Missing tag on TL074 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:49.
-WARNING: Random tag 8hCy6navFV generated for TL074.
-WARNING: Missing tag on TL074 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:49.
-WARNING: Random tag mpuw8IlrLK generated for TL074.
-WARNING: Missing tag on Barrel_Jack instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:72.
-WARNING: Random tag njaZEdQFDj generated for Barrel_Jack.
-WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
-WARNING: Random tag iM2lBgdbMP generated for 1N4148.
-WARNING: Missing tag on C_Polarized instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
-WARNING: Random tag ly6sMpJpO9 generated for C_Polarized.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag Bk8HlIWoEx generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag 3NgeJNh3cO generated for R.
-WARNING: Missing tag on C_Polarized instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
-WARNING: Random tag rg9ERoDMvB generated for C_Polarized.
-WARNING: Missing tag on AudioJack2 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:88.
-WARNING: Random tag uQ9nwwnQ_5 generated for AudioJack2.
-WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
-WARNING: Random tag 72RWRtI5p7 generated for C.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag QMLG6Ga0uQ generated for R.
-WARNING: Missing tag on R_Potentiometer instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:42.
-WARNING: Random tag 5fXQHbIHRA generated for R_Potentiometer.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag FHLubsozJY generated for R.
-WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
-WARNING: Random tag OOQau4aRsl generated for C.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag oON_7ywr06 generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag 0eaTSdMkiv generated for R.
-WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
-WARNING: Random tag EwggTIWkVU generated for C.
-WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
-WARNING: Random tag LCBB1vCAW0 generated for 1N4148.
-WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
-WARNING: Random tag n7McbCw95Y generated for 1N4148.
-WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
-WARNING: Random tag D2hTtSf00h generated for 1N4148.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag o70E8Sbu39 generated for R.
-WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
-WARNING: Random tag wh86WP6wru generated for C.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag wIsFUKtaAL generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag E4tlTMUl2i generated for R.
-WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
-WARNING: Random tag oXIrtZvyKo generated for C.
-WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
-WARNING: Random tag cHGWxko2M0 generated for 1N4148.
-WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
-WARNING: Random tag P2uFIKTYIT generated for 1N4148.
-WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
-WARNING: Random tag POi6GZVcou generated for 1N4148.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag e6L4V8Yuf9 generated for R.
-WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
-WARNING: Random tag 9spGy5tOgx generated for C.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag UmoTb8IQkm generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag SbnqN1esPD generated for R.
-WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
-WARNING: Random tag 3CTkyHTRA0 generated for C.
-WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
-WARNING: Random tag aqTLImNGkP generated for 1N4148.
-WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
-WARNING: Random tag VUoIxPyOnp generated for 1N4148.
-WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
-WARNING: Random tag cYHbXE7OES generated for 1N4148.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag nkfjHu0fYy generated for R.
-WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
-WARNING: Random tag J80GfX7fOQ generated for C.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag ClkV51skHT generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag LifNgUAgzl generated for R.
-WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
-WARNING: Random tag AIYsuNCxjP generated for 1N4148.
-WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
-WARNING: Random tag GU61wgoI5X generated for 1N4148.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag 0YsNEjBJBi generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag D3uKgN3TLx generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag Z24QEcdkHG generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag bFXio_5x0o generated for R.
-WARNING: Missing tag on C_Polarized instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
-WARNING: Random tag B1HgLpJH7o generated for C_Polarized.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag LI4k1t3ysM generated for R.
-WARNING: Missing tag on C_Polarized instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
-WARNING: Random tag aIEb_Uq6Mn generated for C_Polarized.
-WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
-WARNING: Random tag PsHvTBtR7R generated for C.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag zU03KtgAc4 generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag e_Rs2hw0RP generated for R.
-WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
-WARNING: Random tag m8wSw10Lum generated for 1N4148.
-WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
-WARNING: Random tag h_dS862UAP generated for 1N4148.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag oTkVpMBOu5 generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag 7aXupmrPWL generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag JkLQQzBbYv generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag 9LUO1aki6x generated for R.
-WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
-WARNING: Random tag yoB6x3Xcsk generated for C.
-WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
-WARNING: Random tag Bz9hkIjiUd generated for C.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag EOV9A7B77j generated for R.
-WARNING: Missing tag on R_Potentiometer_Dual_Separate instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:185.
-WARNING: Random tag kmrSqTK1Ar generated for R_Potentiometer_Dual_Separate.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag 8qq05Z3FYl generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag HlxNPOOkPZ generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag 5y8e1DCtZF generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag qGXOJnX2ZY generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag oNjOIydKVn generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag Uc4ZfzWUwc generated for R.
-WARNING: Missing tag on LM13700 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:206.
-WARNING: Random tag OaWJaD2yFu generated for LM13700.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag wuIlspnPk9 generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag PX9cyVny97 generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag iVV3Wx8q4P generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag CcgnKr1Oe4 generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag sd7LIcol15 generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag 5qsGCfILi2 generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag 9Z56Py4BrH generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag 3ClVOrM2oY generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag Q9EfSSMm61 generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag AvuxZs_DE4 generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag pgox0LeoJG generated for R.
-WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
-WARNING: Random tag jx7tldOeeM generated for C.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag 1QWn6C5Xd2 generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag 0Mj4rKxCdU generated for R.
-WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
-WARNING: Random tag StOfzLxwT6 generated for C.
-WARNING: Missing tag on R_Potentiometer instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:42.
-WARNING: Random tag EzlQMoMnys generated for R_Potentiometer.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag 09hpsZG_Ae generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag kZIrPptwaP generated for R.
-WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
-WARNING: Random tag ElO1qECUvt generated for C.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag k9nvUkfaJQ generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag gqrl26UDzO generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag Hm7MKkbL0I generated for R.
-WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:37.
-WARNING: Random tag YUlgHsfNnt generated for R.
-WARNING: Missing tag on R_Potentiometer instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:42.
-WARNING: Random tag QOWE2CzNTl generated for R_Potentiometer.
-WARNING: Missing tag on AudioJack2 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:279.
-WARNING: Random tag GK1zf__EAS generated for AudioJack2.
+WARNING: Missing tag on TL074 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:50.
+WARNING: Random tag 2QwDXjbKFe generated for TL074.
+WARNING: Missing tag on TL074 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:50.
+WARNING: Random tag wHDpcDdFCV generated for TL074.
+WARNING: Missing tag on TL074 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:50.
+WARNING: Random tag LfLWPRYuad generated for TL074.
+WARNING: Missing tag on TL074 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:50.
+WARNING: Random tag WuE66YfPZo generated for TL074.
+WARNING: Missing tag on TL074 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:50.
+WARNING: Random tag znAapmASdU generated for TL074.
+WARNING: Missing tag on TL074 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:50.
+WARNING: Random tag X7ODvwWLww generated for TL074.
+WARNING: Missing tag on Barrel_Jack instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:73.
+WARNING: Random tag fjcsUV64lP generated for Barrel_Jack.
+WARNING: Missing tag on 1N5817 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:74.
+WARNING: Random tag 6wYepAsA0c generated for 1N5817.
+WARNING: Missing tag on C_Polarized instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
+WARNING: Random tag quIah5HMWt generated for C_Polarized.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag 4RvEZlR3r6 generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag YOTlbpStZU generated for R.
+WARNING: Missing tag on C_Polarized instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
+WARNING: Random tag W4hvv0Cxg3 generated for C_Polarized.
+WARNING: Missing tag on AudioJack2 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:91.
+WARNING: Random tag KwqwU_w3hi generated for AudioJack2.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag z70tzuYVCX generated for C.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag VOjaqXkNs2 generated for R.
+WARNING: Missing tag on R_Potentiometer instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:43.
+WARNING: Random tag LnWAb86yyJ generated for R_Potentiometer.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag pkwn7WDdjA generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag pnl5YA1WQD generated for C.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag t0_461kkyc generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag 4OmbkkA54c generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag v7pMMT_fB2 generated for C.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:41.
+WARNING: Random tag feqqRM0wXo generated for 1N4148.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:41.
+WARNING: Random tag FyWFHXupFj generated for 1N4148.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:41.
+WARNING: Random tag uF0V_0CSxR generated for 1N4148.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag 4kJXqgaZsU generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag x51vGjG9Lq generated for C.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag FlJQS6FCl8 generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag ltQyDvEakA generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag tFhjAh1aJK generated for C.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:41.
+WARNING: Random tag ZvEZRrKSsg generated for 1N4148.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:41.
+WARNING: Random tag Bf8qMW5Lzi generated for 1N4148.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:41.
+WARNING: Random tag AqsyfGgikc generated for 1N4148.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag 6v7cR58lkI generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag _LKXeSWD46 generated for C.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag jKEgPW6UGe generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag C9ey9r_8xt generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag KIj0GV4mkV generated for C.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:41.
+WARNING: Random tag vKsWsECm8P generated for 1N4148.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:41.
+WARNING: Random tag M2lmdxMb2d generated for 1N4148.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:41.
+WARNING: Random tag TsJfJ1MHhu generated for 1N4148.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag FaiCjJqn8P generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag lk5n_2twgy generated for C.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag jm5b3E1BKL generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag 4wZi4ndW0e generated for R.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:41.
+WARNING: Random tag xNz5raUUzZ generated for 1N4148.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:41.
+WARNING: Random tag DRWkqA_m_L generated for 1N4148.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag sV6oI5p5if generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag NhbqjSxmbJ generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag sClSb79cuc generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag d21tq7rcnO generated for R.
+WARNING: Missing tag on C_Polarized instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
+WARNING: Random tag zEsFjlCeLb generated for C_Polarized.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag 7sEMKeOMoa generated for R.
+WARNING: Missing tag on C_Polarized instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:40.
+WARNING: Random tag lDjqlmJsF6 generated for C_Polarized.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag Pjtco6UJej generated for C.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag wn_jvN3CRl generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag mAcbcE1yIc generated for R.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:41.
+WARNING: Random tag RQHbwsf2mI generated for 1N4148.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:41.
+WARNING: Random tag 1_mWbEU6xy generated for 1N4148.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag EbIHfacz6I generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag QSBBURwD7f generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag HqrTxTVxL4 generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag 25Iv_3UBnB generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag s_XZAsMhWC generated for C.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag CIbXdjgXRX generated for C.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag SJA4hwDfZh generated for R.
+WARNING: Missing tag on R_Potentiometer_Dual_Separate instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:189.
+WARNING: Random tag WTQ2qpCpFw generated for R_Potentiometer_Dual_Separate.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag TxANBvk0cj generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag yyNQi6ySkI generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag C767OP4mYO generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag _OiILrz1rF generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag 2RmbUWbgAA generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag B9RodmbBKg generated for R.
+WARNING: Missing tag on LM13700 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:210.
+WARNING: Random tag _vtYScAaHz generated for LM13700.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag NqS5PC3rCl generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag kgmIfBtndr generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag LvLZKyJelO generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag LC2J62Drvg generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag h8Ht9UF91p generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag TXTM1Vszke generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag u3BFdWWpFD generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag 1lnTYsoZOt generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag WytsMyiOb5 generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag yP5xMKEee5 generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag AHjfljAtOq generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag 8NMX5lTeyd generated for C.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag 9eVkd5hTET generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag tgRj9s2zNd generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag MHSZ2J3QEQ generated for C.
+WARNING: Missing tag on R_Potentiometer instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:43.
+WARNING: Random tag jnBeWhLp2G generated for R_Potentiometer.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag uN50XENONP generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag oODwTY0o4L generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag fuGwIl4BZC generated for C.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag apop9zPK9N generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag Ua06wxvQNM generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag zuiLV1ubGW generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:38.
+WARNING: Random tag K2H8Xp51bT generated for R.
+WARNING: Missing tag on R_Potentiometer instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:43.
+WARNING: Random tag 5ZT0PgH7Xq generated for R_Potentiometer.
+WARNING: Missing tag on AudioJack2 instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:283.
+WARNING: Random tag TginAXD6Dp generated for AudioJack2.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag Y0Spcen3kX generated for C.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag Uu9hAExUjq generated for C.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag jNdRyLqU4c generated for C.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag s7986OjaP2 generated for C.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag sAjb1PqGgv generated for C.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag 2mO1uZFPoc generated for C.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/duck.py:39.
+WARNING: Random tag KpN8V0WGKS generated for C.
 WARNING: Missing tag on  instantiated at /home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap>:488.
-INFO: 201 warnings found while generating netlist.
+INFO: 215 warnings found while generating netlist.
 INFO: 0 errors found while generating netlist.
 

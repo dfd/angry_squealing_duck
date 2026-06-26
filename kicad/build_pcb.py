@@ -89,6 +89,14 @@ for name, nodes in nets.items():
     if name in ("VCC", "GND", "VREF"): continue        # skip globals for clustering
     for ref, _ in nodes: ref_nets.setdefault(ref, set()).add(name)
 
+# decoupling caps = caps tied only across VCC<->GND -> placed beside their IC (not the grid)
+ref_nets_full = {}
+for name, nodes in nets.items():
+    for ref, _ in nodes: ref_nets_full.setdefault(ref, set()).add(name)
+decoup = sorted(r for r in comps if r[0] == "C" and comps[r][0] == "100n"
+                and ref_nets_full.get(r, set()) == {"VCC", "GND"})   # exclude the 100u bulk
+pdiode = [r for r in comps if comps[r][0] == "1N5817"]   # power diode -> near the DC jack
+
 # ICs: one vertical-oriented row, inset from the side jacks
 ICS = sorted([r for r in comps if r.startswith("U")], key=lambda s: int(s[1:]))
 ic_x = {r: 30 + 18*i for i, r in enumerate(ICS)}         # U1..U7, 18mm spacing
@@ -97,11 +105,16 @@ for r in ICS:
     if r in fp_objs:
         fp_objs[r].SetPosition(V(ic_x[r], IC_Y))   # default 0deg = long axis vertical (narrow)
 
+# one decoupling cap just above each IC (gap between pots and IC row), near its V+ pin
+for i, c in enumerate(decoup):
+    ic = ICS[i % len(ICS)]
+    if c in fp_objs: fp_objs[c].SetPosition(V(ic_x[ic], IC_Y - 14))
+
 # group passives by the IC they share the most (signal) nets with, so each stage's
 # parts stay contiguous in the grid below
 clusters = {r: [] for r in ICS}
 for ref in comps:
-    if ref[0] not in "RCD": continue
+    if ref[0] not in "RCD" or ref in decoup or ref in pdiode: continue   # placed separately
     best, bn = ICS[0], -1
     for ic in ICS:
         sh = len(ref_nets.get(ref, set()) & ref_nets.get(ic, set()))
@@ -122,6 +135,9 @@ for i, r in enumerate(sorted([r for r in comps if r.startswith("RV")], key=lambd
 edge = {"J1": V(12, 62), "J2": V(163, 62), "J3": V(163, 13)}
 for r, p in edge.items():
     if r in fp_objs: fp_objs[r].SetPosition(p)
+# power-protection diode by the DC jack (clear of the last pot + IC row)
+for d in pdiode:
+    if d in fp_objs: fp_objs[d].SetPosition(V(148, 24))
 
 # strip stray Edge.Cuts graphics that some footprints (RV4 dual pot) carry, so the
 # board outline is just our rectangle (a single closed shape)

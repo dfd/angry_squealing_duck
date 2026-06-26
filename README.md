@@ -64,14 +64,18 @@ Design, voicing, real-part validation, **and a routed KiCad PCB are complete.**
 | ✅ | Real part models (TL072 + LM13700) — chain converges, voicing holds |
 | ✅ | All-real buildable netlist (`pedal_build.cir`, no B-sources) — re-validated |
 | ✅ | Quack sweep restored: V-to-I gain ×73 → body cutoff ~280 Hz→2.1 kHz, auditioned-good |
-| ✅ | KiCad PCB: placed, auto-routed, **DRC-clean**, gerbers exported |
+| ✅ | KiCad PCB: placed, auto-routed, gerbers exported |
+| ✅ | **Tier-1 de-risk audit** (`kicad/AUDIT.md`): caught + fixed **10 reversed diodes**; added per-IC decoupling + Schottky protection + center-neg polarity; **DRC 0 unconnected / 0 violations** |
 
 **Quack note:** the real envelope is tiny (~0.04 V peak), so the V-to-I needs high gain
 (`Rdi`/`Rdj` = 1.5k, `Rdf`/`Rdk` = 110k → ×73) for the filter to sweep. Quack is most
 audible at lower Squeal — at full Squeal the octave sits on top by design.
 
-**Known residual:** 4 benign `starved_thermal` DRC advisories on crowded GND pads
-(fully connected to the pour; clear them with a solid-connection click in pcbnew if desired).
+**Audit caught a board-killer:** `duck.py` (hand-translated) had 10/14 diodes reversed
+(fuzz clippers + both rectifiers) — ERC + sim pass anyway since the SPICE is a separate,
+correct source. Fixed to match SPICE; see `kicad/AUDIT.md`. **Not yet hardware-validated:**
+real noise floor + the LM13700 filter's behavior (the `/50` attenuation hack, Iabc ceiling) —
+confirm by breadboarding the filter + fuzz before fab (`kicad/breadboard/`).
 
 ## Layout
 
@@ -90,6 +94,7 @@ audible at lower Squeal — at full Squeal the octave sits on top by design.
   - `build_pcb.py` (pcbnew: parse netlist → place → board) ; `finish_pcb.py` (values + GND pour)
   - `duck.kicad_pcb` (routed, DRC-clean) ; `gerbers/` + `duck.drl` + `duck-pos.csv` (fab-ready)
   - `duck_3d_top.png` / `duck_3d_persp.png` (3D renders; or open the `.kicad_pcb` in pcbnew → `Alt+3`)
+  - `AUDIT.md` (netlist-translation audit + gap fixes) ; `BOM.md` ; `COST.md` (build-cost estimate)
   - `pedal_build.cir` in `spice/blocks/` is the all-real buildable schematic-of-record
 - `kicad/breadboard/` — prototype-first docs (build it on a breadboard before the PCB):
   - `BUILD_GUIDE.md` (staged bring-up) + `CONNECTIONS.md` (per-stage wiring tables, net = row)
