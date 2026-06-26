@@ -1,0 +1,1025 @@
+(export 
+  (version "D")
+  (design
+    (source "gen_blocks.py")
+    (date "06/26/2026 02:14 AM")
+    (tool "SKiDL (2.2.3)")
+    (sheet
+      (number 1)
+      (name "/")
+      (tstamps "/")
+      (title_block
+        (title)
+        (company)
+        (rev)
+        (date)
+        (source "../../gen_blocks.py")
+        (comment
+          (number "1")
+          (value ""))
+        (comment
+          (number "2")
+          (value ""))
+        (comment
+          (number "3")
+          (value ""))
+        (comment
+          (number "4")
+          (value ""))
+        (comment
+          (number "5")
+          (value ""))
+        (comment
+          (number "6")
+          (value ""))
+        (comment
+          (number "7")
+          (value ""))
+        (comment
+          (number "8")
+          (value ""))
+        (comment
+          (number "9")
+          (value "")))))
+  (components
+    (comp
+      (ref "C1")
+      (value "100n")
+      (description "Unpolarized capacitor")
+      (footprint "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm")
+      (fields
+        (field
+          (name "Description") "Unpolarized capacitor")
+        (field
+          (name "Footprint") "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "3A0AuKRjkR")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:25"))
+      (libsource
+        (lib "Device")
+        (part "C"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "114de8d6-4cff-55e9-8fea-430d7955d059"))
+    (comp
+      (ref "C2")
+      (value "1.5n")
+      (description "Unpolarized capacitor")
+      (footprint "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm")
+      (fields
+        (field
+          (name "Description") "Unpolarized capacitor")
+        (field
+          (name "Footprint") "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "gUPlZEzGOQ")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:25"))
+      (libsource
+        (lib "Device")
+        (part "C"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "155339ef-2ba1-5746-9f10-ff51b8d7ead5"))
+    (comp
+      (ref "C3")
+      (value "100n")
+      (description "Unpolarized capacitor")
+      (footprint "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm")
+      (fields
+        (field
+          (name "Description") "Unpolarized capacitor")
+        (field
+          (name "Footprint") "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "L_hJzyNl5x")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:25"))
+      (libsource
+        (lib "Device")
+        (part "C"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "97bcff7b-0d21-5f7f-86f0-23410fc98e95"))
+    (comp
+      (ref "C4")
+      (value "1.5n")
+      (description "Unpolarized capacitor")
+      (footprint "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm")
+      (fields
+        (field
+          (name "Description") "Unpolarized capacitor")
+        (field
+          (name "Footprint") "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "HPw0FRaAhK")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:25"))
+      (libsource
+        (lib "Device")
+        (part "C"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "576dc5b8-3d93-540a-b4d6-fd6871360ec0"))
+    (comp
+      (ref "C5")
+      (value "100n")
+      (description "Unpolarized capacitor")
+      (footprint "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm")
+      (fields
+        (field
+          (name "Description") "Unpolarized capacitor")
+        (field
+          (name "Footprint") "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "gxBHDWTyvd")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:25"))
+      (libsource
+        (lib "Device")
+        (part "C"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "2c97dc1c-9d77-5701-830d-238c01a542a5"))
+    (comp
+      (ref "C6")
+      (value "1.5n")
+      (description "Unpolarized capacitor")
+      (footprint "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm")
+      (fields
+        (field
+          (name "Description") "Unpolarized capacitor")
+        (field
+          (name "Footprint") "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "JtCFVU0slY")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:25"))
+      (libsource
+        (lib "Device")
+        (part "C"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "593df75a-a66d-5477-a174-a9aa8f0553e9"))
+    (comp
+      (ref "C7")
+      (value "27n")
+      (description "Unpolarized capacitor")
+      (footprint "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm")
+      (fields
+        (field
+          (name "Description") "Unpolarized capacitor")
+        (field
+          (name "Footprint") "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "vb1hwD2hYX")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:25"))
+      (libsource
+        (lib "Device")
+        (part "C"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "0711deb6-a394-545c-8f49-307ae549fbed"))
+    (comp
+      (ref "D1")
+      (value "1N4148")
+      (description "100V 0.15A standard switching diode, DO-35")
+      (footprint "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "100V 0.15A standard switching diode, DO-35")
+        (field
+          (name "Footprint") "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+        (field
+          (name "Datasheet") "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+        (field
+          (name "SKiDL Tag") "HEKkE8dKqf")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:27"))
+      (libsource
+        (lib "Diode")
+        (part "1N4148"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "295c1652-b77c-5e31-b0d7-a5e73786e89f"))
+    (comp
+      (ref "D2")
+      (value "1N4148")
+      (description "100V 0.15A standard switching diode, DO-35")
+      (footprint "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "100V 0.15A standard switching diode, DO-35")
+        (field
+          (name "Footprint") "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+        (field
+          (name "Datasheet") "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+        (field
+          (name "SKiDL Tag") "InEHJwG9st")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:27"))
+      (libsource
+        (lib "Diode")
+        (part "1N4148"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "a7fe2ade-d356-50e5-be7d-31980e2c2669"))
+    (comp
+      (ref "D3")
+      (value "1N4148")
+      (description "100V 0.15A standard switching diode, DO-35")
+      (footprint "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "100V 0.15A standard switching diode, DO-35")
+        (field
+          (name "Footprint") "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+        (field
+          (name "Datasheet") "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+        (field
+          (name "SKiDL Tag") "0KaIKMhngR")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:27"))
+      (libsource
+        (lib "Diode")
+        (part "1N4148"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "d0e196b8-397c-54c9-a4f4-12575516e35f"))
+    (comp
+      (ref "D4")
+      (value "1N4148")
+      (description "100V 0.15A standard switching diode, DO-35")
+      (footprint "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "100V 0.15A standard switching diode, DO-35")
+        (field
+          (name "Footprint") "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+        (field
+          (name "Datasheet") "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+        (field
+          (name "SKiDL Tag") "hm8EEe0tdp")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:27"))
+      (libsource
+        (lib "Diode")
+        (part "1N4148"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "82cf0d32-9e01-5793-81f2-a7be5db6b8b6"))
+    (comp
+      (ref "D5")
+      (value "1N4148")
+      (description "100V 0.15A standard switching diode, DO-35")
+      (footprint "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "100V 0.15A standard switching diode, DO-35")
+        (field
+          (name "Footprint") "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+        (field
+          (name "Datasheet") "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+        (field
+          (name "SKiDL Tag") "4WVUjYV5t5")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:27"))
+      (libsource
+        (lib "Diode")
+        (part "1N4148"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "41457bc8-127e-51e3-9880-313c89d39e23"))
+    (comp
+      (ref "D6")
+      (value "1N4148")
+      (description "100V 0.15A standard switching diode, DO-35")
+      (footprint "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "100V 0.15A standard switching diode, DO-35")
+        (field
+          (name "Footprint") "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+        (field
+          (name "Datasheet") "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+        (field
+          (name "SKiDL Tag") "oomrfCId_w")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:27"))
+      (libsource
+        (lib "Diode")
+        (part "1N4148"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "4d5e86a0-6087-5eef-b094-2734969b948c"))
+    (comp
+      (ref "D7")
+      (value "1N4148")
+      (description "100V 0.15A standard switching diode, DO-35")
+      (footprint "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "100V 0.15A standard switching diode, DO-35")
+        (field
+          (name "Footprint") "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+        (field
+          (name "Datasheet") "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+        (field
+          (name "SKiDL Tag") "K9utTaabQb")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:27"))
+      (libsource
+        (lib "Diode")
+        (part "1N4148"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "c9dc5912-6fd9-5872-80e5-b303f83b9925"))
+    (comp
+      (ref "D8")
+      (value "1N4148")
+      (description "100V 0.15A standard switching diode, DO-35")
+      (footprint "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "100V 0.15A standard switching diode, DO-35")
+        (field
+          (name "Footprint") "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+        (field
+          (name "Datasheet") "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+        (field
+          (name "SKiDL Tag") "ptMeX87m4O")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:27"))
+      (libsource
+        (lib "Diode")
+        (part "1N4148"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "11dde65f-d8eb-5fea-8edc-67caa03af1e1"))
+    (comp
+      (ref "D9")
+      (value "1N4148")
+      (description "100V 0.15A standard switching diode, DO-35")
+      (footprint "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "100V 0.15A standard switching diode, DO-35")
+        (field
+          (name "Footprint") "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
+        (field
+          (name "Datasheet") "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf")
+        (field
+          (name "SKiDL Tag") "1BXF2xDW3q")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:27"))
+      (libsource
+        (lib "Diode")
+        (part "1N4148"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "2861e8b7-b70a-5f1b-880d-5082013d1161"))
+    (comp
+      (ref "R1")
+      (value "1M")
+      (description "Resistor")
+      (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "Resistor")
+        (field
+          (name "Footprint") "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "ndD7N_pkUo")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:24"))
+      (libsource
+        (lib "Device")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "4b50c040-dbe6-576d-b9a7-db2462c5816a"))
+    (comp
+      (ref "R10")
+      (value "2.2k")
+      (description "Resistor")
+      (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "Resistor")
+        (field
+          (name "Footprint") "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "vtNfvzA891")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:24"))
+      (libsource
+        (lib "Device")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "a36ef0a6-59f0-5661-a078-39afc2d900eb"))
+    (comp
+      (ref "R2")
+      (value "2.2k")
+      (description "Resistor")
+      (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "Resistor")
+        (field
+          (name "Footprint") "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "Nuz7WQtUG_")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:24"))
+      (libsource
+        (lib "Device")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "bcc1fe9a-5ebe-51f6-8fa7-d2a499f87754"))
+    (comp
+      (ref "R3")
+      (value "100k")
+      (description "Resistor")
+      (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "Resistor")
+        (field
+          (name "Footprint") "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "GQ581QCoUo")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:24"))
+      (libsource
+        (lib "Device")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "e6f17099-c546-57f3-907c-fc8063fbdd97"))
+    (comp
+      (ref "R4")
+      (value "1M")
+      (description "Resistor")
+      (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "Resistor")
+        (field
+          (name "Footprint") "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "owKOBkcUWR")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:24"))
+      (libsource
+        (lib "Device")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "fe949e97-ed62-599c-bd0c-ca8accc31b23"))
+    (comp
+      (ref "R5")
+      (value "12k")
+      (description "Resistor")
+      (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "Resistor")
+        (field
+          (name "Footprint") "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "Mgd3Au0Y7z")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:24"))
+      (libsource
+        (lib "Device")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "2d5a2707-bb48-5f87-be1b-652cbf710b40"))
+    (comp
+      (ref "R6")
+      (value "100k")
+      (description "Resistor")
+      (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "Resistor")
+        (field
+          (name "Footprint") "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "eXIjUD82vM")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:24"))
+      (libsource
+        (lib "Device")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "4b47f343-9c73-5fb2-bc32-18994adc770d"))
+    (comp
+      (ref "R7")
+      (value "1M")
+      (description "Resistor")
+      (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "Resistor")
+        (field
+          (name "Footprint") "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "gLHr2_5ygv")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:24"))
+      (libsource
+        (lib "Device")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "8e4f496e-1ec3-5728-a227-ecc1e1e9065b"))
+    (comp
+      (ref "R8")
+      (value "12k")
+      (description "Resistor")
+      (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "Resistor")
+        (field
+          (name "Footprint") "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "7qD_cGqeJr")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:24"))
+      (libsource
+        (lib "Device")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "8dde05a9-1b91-56f9-baf5-c00a62b423ce"))
+    (comp
+      (ref "R9")
+      (value "68k")
+      (description "Resistor")
+      (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "Resistor")
+        (field
+          (name "Footprint") "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "ysTAa3z_rP")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:24"))
+      (libsource
+        (lib "Device")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "7b0df5fc-bfe1-582d-98c8-d4efbe9375b4"))
+    (comp
+      (ref "RV1")
+      (value "100k")
+      (description "Potentiometer")
+      (footprint "")
+      (fields
+        (field
+          (name "Description") "Potentiometer")
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "rvOraDdy9n")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:28"))
+      (libsource
+        (lib "Device")
+        (part "R_Potentiometer"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "06ded980-ab78-5f4f-b527-de1ab8a11189"))
+    (comp
+      (ref "U1")
+      (value "TL074")
+      (description "Quad Low-Noise JFET-Input Operational Amplifiers, DIP-14/SOIC-14")
+      (footprint "Package_DIP:DIP-14_W7.62mm")
+      (fields
+        (field
+          (name "Description") "Quad Low-Noise JFET-Input Operational Amplifiers, DIP-14/SOIC-14")
+        (field
+          (name "Footprint") "Package_DIP:DIP-14_W7.62mm")
+        (field
+          (name "Datasheet") "http://www.ti.com/lit/ds/symlink/tl071.pdf")
+        (field
+          (name "SKiDL Tag") "0DmdpLuEEF")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:30"))
+      (libsource
+        (lib "Amplifier_Operational")
+        (part "TL074"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "17078db6-6f80-56fd-b34b-a567dd62840e")))
+  (nets
+    (net
+      (code 1)
+      (name "FZ")
+      (class "Default")
+      (node
+        (ref "C7")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R10")
+        (pin "2")
+        (pintype "PASSIVE")))
+    (net
+      (code 2)
+      (name "FZ1")
+      (class "Default")
+      (node
+        (ref "C2")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "C3")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D1")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D2")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R3")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "1")
+        (pintype "OUTPUT")))
+    (net
+      (code 3)
+      (name "FZ2")
+      (class "Default")
+      (node
+        (ref "C4")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "C5")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D4")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D5")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R6")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "7")
+        (pintype "OUTPUT")))
+    (net
+      (code 4)
+      (name "FZ3")
+      (class "Default")
+      (node
+        (ref "C6")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D7")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D8")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R10")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R9")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "8")
+        (pintype "OUTPUT")))
+    (net
+      (code 5)
+      (name "GND")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "11")
+        (pintype "POWER-IN")))
+    (net
+      (code 6)
+      (name "N$1")
+      (class "Default")
+      (node
+        (ref "C1")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R1")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R2")
+        (pin "1")
+        (pintype "PASSIVE")))
+    (net
+      (code 7)
+      (name "N$10")
+      (class "Default")
+      (node
+        (ref "C5")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R7")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R8")
+        (pin "1")
+        (pintype "PASSIVE")))
+    (net
+      (code 8)
+      (name "N$11")
+      (class "Default")
+      (node
+        (ref "C6")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D7")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D9")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R8")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R9")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "9")
+        (pintype "INPUT")))
+    (net
+      (code 9)
+      (name "N$13")
+      (class "Default")
+      (node
+        (ref "D8")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D9")
+        (pin "2")
+        (pintype "PASSIVE")))
+    (net
+      (code 10)
+      (name "N$2")
+      (class "Default")
+      (node
+        (ref "R2")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "RV1")
+        (pin "1")
+        (pintype "PASSIVE")))
+    (net
+      (code 11)
+      (name "N$3")
+      (class "Default")
+      (node
+        (ref "C2")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D1")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D3")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R3")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "RV1")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "RV1")
+        (pin "3")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "2")
+        (pintype "INPUT")))
+    (net
+      (code 12)
+      (name "N$5")
+      (class "Default")
+      (node
+        (ref "D2")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D3")
+        (pin "2")
+        (pintype "PASSIVE")))
+    (net
+      (code 13)
+      (name "N$6")
+      (class "Default")
+      (node
+        (ref "C3")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R4")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R5")
+        (pin "1")
+        (pintype "PASSIVE")))
+    (net
+      (code 14)
+      (name "N$7")
+      (class "Default")
+      (node
+        (ref "C4")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D4")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D6")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R5")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R6")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "6")
+        (pintype "INPUT")))
+    (net
+      (code 15)
+      (name "N$9")
+      (class "Default")
+      (node
+        (ref "D5")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D6")
+        (pin "2")
+        (pintype "PASSIVE")))
+    (net
+      (code 16)
+      (name "SIG")
+      (class "Default")
+      (node
+        (ref "C1")
+        (pin "1")
+        (pintype "PASSIVE")))
+    (net
+      (code 17)
+      (name "VCC")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "4")
+        (pintype "POWER-IN")))
+    (net
+      (code 18)
+      (name "VREF")
+      (class "Default")
+      (node
+        (ref "C7")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R1")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R4")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R7")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "10")
+        (pintype "INPUT"))
+      (node
+        (ref "U1")
+        (pin "3")
+        (pintype "INPUT"))
+      (node
+        (ref "U1")
+        (pin "5")
+        (pintype "INPUT")))))

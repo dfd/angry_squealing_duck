@@ -89,7 +89,12 @@ audible at lower Squeal — at full Squeal the octave sits on top by design.
   - `duck.py` (SKiDL netlist generator) → `duck.net` (ERC-clean) + `BOM.md`
   - `build_pcb.py` (pcbnew: parse netlist → place → board) ; `finish_pcb.py` (values + GND pour)
   - `duck.kicad_pcb` (routed, DRC-clean) ; `gerbers/` + `duck.drl` + `duck-pos.csv` (fab-ready)
+  - `duck_3d_top.png` / `duck_3d_persp.png` (3D renders; or open the `.kicad_pcb` in pcbnew → `Alt+3`)
   - `pedal_build.cir` in `spice/blocks/` is the all-real buildable schematic-of-record
+- `kicad/breadboard/` — prototype-first docs (build it on a breadboard before the PCB):
+  - `BUILD_GUIDE.md` (staged bring-up) + `CONNECTIONS.md` (per-stage wiring tables, net = row)
+  - `gen_blocks.py` / `make_tables.py` (generators) ; `0*.png` drawn schematics (simple stages)
+- `audio/out/build_grid/` + `build_grid_orig/` — full real-parts grids (Squeal×Anger×Quack ∈ {0,0.5,1})
 
 ## KiCad / PCB workflow
 
@@ -113,6 +118,16 @@ Board: 2-layer, 175×120 mm (1590DD-class), 6× TL074 + 1× LM13700 + 14× 1N414
 4 knobs (Volume / Anger / Squeal / Quack-dual-gang). No graphical schematic
 (eeschema has no scripting API) — `pedal_build.cir` + `duck.py` are the design-of-record.
 
+## Prototype it first (breadboard)
+
+`kicad/breadboard/` holds **prototype-first** docs. Build + test the circuit on solderless
+breadboards one stage at a time before committing to the PCB — see `BUILD_GUIDE.md` for the
+staged bring-up order (supply → input → fuzz → octave → envelope → V-to-I → filter → output)
+and `CONNECTIONS.md` for per-stage wiring tables (**each net = one breadboard row**; IC pins
+annotated). Each stage uses its own op-amp IC (not the PCB's shared packing) so it tests
+standalone. Regenerate with `gen_blocks.py` + `make_tables.py`. (SKiDL's schematic auto-router
+only handles the simple stages, so the dense ones are table-only — better for breadboarding anyway.)
+
 ## Workflow
 
 Run a block test bench:
@@ -121,13 +136,17 @@ uv run sim/run.py spice/tests/tb_input_buffer.cir
 ```
 Render guitar through the pedal (→ `audio/out/`):
 ```
-uv run sim/render.py [wav] --route hybrid --squeal 1 --anger 0.8 --quack 0.6 \
-    [--real] [--subdir name] [--fuzz muff|hard] [--mode bp|hp|mixed]
+# the LOCKED, buildable design (= the PCB): real parts, no B-sources, V-to-I gain x73
+uv run sim/render.py [wav] --build --squeal 1 --anger 0.8 --quack 0.6 [--subdir name]
+# the behavioral routes (faster iteration / experiments):
+uv run sim/render.py [wav] --route hybrid --squeal 1 --anger 0.8 --quack 0.6 [--real]
 ```
-- `--real` = TL072 + LM13700 real-part chain (else fast ideal models)
-- `--route` = mixed | hybrid | parallel  · `--goct` = octave makeup
-- Scratch files are unique per render, so render the grid in parallel on many cores:
+- **`--build`** = `pedal_build.cir`, the all-real buildable pedal that matches the PCB (use this).
+- `--real` = TL072 + LM13700 models on the behavioral chain · `--route` = mixed|hybrid|parallel
+- Scratch files are unique per render, so render a grid in parallel on many cores:
   `... | xargs -P 24 -I A sh -c 'uv run sim/render.py A'`
+  (the committed `audio/out/build_grid/` + `build_grid_orig/` are the `--build` grids of
+  Squeal×Anger×Quack ∈ {0, 0.5, 1.0} on both DI samples).
 
 Measure octave-vs-body level on real clips (don't trust single-note benches — they
 over-read the octave ~6 dB):

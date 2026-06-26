@@ -1,0 +1,174 @@
+(export 
+  (version "D")
+  (design
+    (source "gen_blocks.py")
+    (date "06/26/2026 02:14 AM")
+    (tool "SKiDL (2.2.3)")
+    (sheet
+      (number 1)
+      (name "/")
+      (tstamps "/")
+      (title_block
+        (title)
+        (company)
+        (rev)
+        (date)
+        (source "../../gen_blocks.py")
+        (comment
+          (number "1")
+          (value ""))
+        (comment
+          (number "2")
+          (value ""))
+        (comment
+          (number "3")
+          (value ""))
+        (comment
+          (number "4")
+          (value ""))
+        (comment
+          (number "5")
+          (value ""))
+        (comment
+          (number "6")
+          (value ""))
+        (comment
+          (number "7")
+          (value ""))
+        (comment
+          (number "8")
+          (value ""))
+        (comment
+          (number "9")
+          (value "")))))
+  (components
+    (comp
+      (ref "C1")
+      (value "100n")
+      (description "Unpolarized capacitor")
+      (footprint "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm")
+      (fields
+        (field
+          (name "Description") "Unpolarized capacitor")
+        (field
+          (name "Footprint") "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "VTjvnH_1Ra")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:25"))
+      (libsource
+        (lib "Device")
+        (part "C"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "92de5597-a0b5-52b0-811f-5102c21d362c"))
+    (comp
+      (ref "R1")
+      (value "1M")
+      (description "Resistor")
+      (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+      (fields
+        (field
+          (name "Description") "Resistor")
+        (field
+          (name "Footprint") "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "yyr_5PDAvB")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:24"))
+      (libsource
+        (lib "Device")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "ccd36643-85ed-53ed-9b96-b8a38fab3879"))
+    (comp
+      (ref "U1")
+      (value "TL072")
+      (description "Dual Low-Noise JFET-Input Operational Amplifiers, DIP-8/SOIC-8")
+      (footprint "Package_DIP:DIP-8_W7.62mm")
+      (fields
+        (field
+          (name "Description") "Dual Low-Noise JFET-Input Operational Amplifiers, DIP-8/SOIC-8")
+        (field
+          (name "Footprint") "Package_DIP:DIP-8_W7.62mm")
+        (field
+          (name "Datasheet") "http://www.ti.com/lit/ds/symlink/tl071.pdf")
+        (field
+          (name "SKiDL Tag") "TUsz3pCNgt")
+        (field
+          (name "SKiDL Line") "gen_blocks.py:29"))
+      (libsource
+        (lib "Amplifier_Operational")
+        (part "TL072"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "2aa5085b-5da1-5f7b-95cc-94ace22dbc48")))
+  (nets
+    (net
+      (code 1)
+      (name "GND")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "4")
+        (pintype "POWER-IN")))
+    (net
+      (code 2)
+      (name "IN")
+      (class "Default")
+      (node
+        (ref "C1")
+        (pin "1")
+        (pintype "PASSIVE")))
+    (net
+      (code 3)
+      (name "NP")
+      (class "Default")
+      (node
+        (ref "C1")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R1")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "3")
+        (pintype "INPUT")))
+    (net
+      (code 4)
+      (name "SIG")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "1")
+        (pintype "OUTPUT"))
+      (node
+        (ref "U1")
+        (pin "2")
+        (pintype "INPUT")))
+    (net
+      (code 5)
+      (name "VCC")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "8")
+        (pintype "POWER-IN")))
+    (net
+      (code 6)
+      (name "VREF")
+      (class "Default")
+      (node
+        (ref "R1")
+        (pin "2")
+        (pintype "PASSIVE")))))

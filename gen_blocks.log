@@ -1,0 +1,287 @@
+WARNING: KICAD7_SYMBOL_DIR environment variable is missing, so the default KiCad symbol libraries won't be searched. @ [/home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap_external>:1026=>/home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap>:488]
+WARNING: KICAD9_SYMBOL_DIR environment variable is missing, so the default KiCad symbol libraries won't be searched. @ [/home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap_external>:1026=>/home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap>:488]
+WARNING: KICAD_SYMBOL_DIR environment variable is missing, so the default KiCad symbol libraries won't be searched. @ [/home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap_external>:1026=>/home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap>:488]
+WARNING: KICAD6_SYMBOL_DIR environment variable is missing, so the default KiCad symbol libraries won't be searched. @ [/home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap_external>:1026=>/home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap>:488]
+WARNING: fp-lib-table file was not found. Component footprints are not available.
+WARNING: fp-lib-table file was not found. Component footprints are not available.
+WARNING: fp-lib-table file was not found. Component footprints are not available.
+WARNING: fp-lib-table file was not found. Component footprints are not available.
+WARNING: Missing tag on TL072 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:29.
+WARNING: Random tag sIhCIqSyb1 generated for TL072.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:27.
+WARNING: Random tag 15SnUOh4SE generated for 1N4148.
+WARNING: Missing tag on C_Polarized instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:26.
+WARNING: Random tag UbC27XZsBU generated for C_Polarized.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag G8kHeyrcz2 generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag ZwyfsWuoEn generated for R.
+WARNING: Missing tag on C_Polarized instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:26.
+WARNING: Random tag GwefWKsOWW generated for C_Polarized.
+WARNING: Missing tag on  instantiated at /home/dave/dev/angry_squealing_duck/<frozen importlib._bootstrap>:488.
+INFO: 17 warnings found while generating netlist.
+INFO: 0 errors found while generating netlist.
+
+WARNING: KiCad ERC found issues in ./gen_blocks.kicad_sch:
+ @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:73=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+INFO: Schematic written to ./gen_blocks.kicad_sch @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:73=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+INFO: 18 warnings found while generating schematic.
+INFO: 0 errors found while generating schematic.
+
+WARNING: Missing tag on TL072 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:29.
+WARNING: Random tag TUsz3pCNgt generated for TL072.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:25.
+WARNING: Random tag VTjvnH_1Ra generated for C.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag yyr_5PDAvB generated for R.
+WARNING: Missing tag on  instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:56.
+INFO: 24 warnings found while generating netlist.
+INFO: 0 errors found while generating netlist.
+
+WARNING: KiCad ERC found issues in ./gen_blocks.kicad_sch:
+ @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:80=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+INFO: Schematic written to ./gen_blocks.kicad_sch @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:80=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+INFO: 25 warnings found while generating schematic.
+INFO: 0 errors found while generating schematic.
+
+ERROR: No footprint for R_Potentiometer/RV1 added at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:28.
+WARNING: Missing tag on TL074 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:30.
+WARNING: Random tag 0DmdpLuEEF generated for TL074.
+WARNING: Missing tag on R_Potentiometer instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:28.
+WARNING: Random tag rvOraDdy9n generated for R_Potentiometer.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:25.
+WARNING: Random tag 3A0AuKRjkR generated for C.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag ndD7N_pkUo generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag Nuz7WQtUG_ generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag GQ581QCoUo generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:25.
+WARNING: Random tag gUPlZEzGOQ generated for C.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:27.
+WARNING: Random tag HEKkE8dKqf generated for 1N4148.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:27.
+WARNING: Random tag InEHJwG9st generated for 1N4148.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:27.
+WARNING: Random tag 0KaIKMhngR generated for 1N4148.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:25.
+WARNING: Random tag L_hJzyNl5x generated for C.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag owKOBkcUWR generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag Mgd3Au0Y7z generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag eXIjUD82vM generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:25.
+WARNING: Random tag HPw0FRaAhK generated for C.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:27.
+WARNING: Random tag hm8EEe0tdp generated for 1N4148.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:27.
+WARNING: Random tag 4WVUjYV5t5 generated for 1N4148.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:27.
+WARNING: Random tag oomrfCId_w generated for 1N4148.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:25.
+WARNING: Random tag gxBHDWTyvd generated for C.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag gLHr2_5ygv generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag 7qD_cGqeJr generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag ysTAa3z_rP generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:25.
+WARNING: Random tag JtCFVU0slY generated for C.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:27.
+WARNING: Random tag K9utTaabQb generated for 1N4148.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:27.
+WARNING: Random tag ptMeX87m4O generated for 1N4148.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:27.
+WARNING: Random tag 1BXF2xDW3q generated for 1N4148.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag vtNfvzA891 generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:25.
+WARNING: Random tag vb1hwD2hYX generated for C.
+WARNING: Missing tag on  instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:56.
+INFO: 81 warnings found while generating netlist.
+INFO: 1 errors found while generating netlist.
+
+WARNING: Routing failed on attempt 1/2, expanding area by 1.5x:  @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:103=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+WARNING: Routing failed on attempt 2/2, expanding area by 1.5x:  @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:103=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+ERROR: No footprint for R_Potentiometer/RV1 added at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:28.
+WARNING: Missing tag on TL074 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:30.
+WARNING: Random tag 0NVK5I9yDG generated for TL074.
+WARNING: Missing tag on R_Potentiometer instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:28.
+WARNING: Random tag 689e1Mrw9l generated for R_Potentiometer.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:25.
+WARNING: Random tag hALmCOvFtX generated for C.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag CpPN1xjTxf generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag OxbBOa38z1 generated for R.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:27.
+WARNING: Random tag YfU02Sipor generated for 1N4148.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:27.
+WARNING: Random tag oEn55Ic0Ll generated for 1N4148.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag rPV66aRrxm generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag nncwNsisZc generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag C6WNkwdP_8 generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag FP1TlRCGLo generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:25.
+WARNING: Random tag Ld0IST15ra generated for C.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:25.
+WARNING: Random tag NR4qLs7Un9 generated for C.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag 6nLuNRePlv generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag fW9d6oi9XV generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag fxImUADiNc generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:25.
+WARNING: Random tag kZFoTU0ZKC generated for C.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag OjpA7r4GfC generated for R.
+WARNING: Missing tag on  instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:56.
+INFO: 118 warnings found while generating netlist.
+INFO: 2 errors found while generating netlist.
+
+WARNING: Routing failed on attempt 1/2, expanding area by 1.5x:  @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:129=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+WARNING: Routing failed on attempt 2/2, expanding area by 1.5x:  @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:129=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+WARNING: Missing tag on TL074 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:30.
+WARNING: Random tag HR_Xozpwln generated for TL074.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag rbaCFNjIZQ generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag JSIYuUQyk7 generated for R.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:27.
+WARNING: Random tag QpLTfIIPUg generated for 1N4148.
+WARNING: Missing tag on 1N4148 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:27.
+WARNING: Random tag Z9W_sixCIm generated for 1N4148.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag xHUg_SJ3Rr generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag Sw0HXRyeTn generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag orX5R_eFCz generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag 8WyoD3uZk6 generated for R.
+WARNING: Missing tag on C_Polarized instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:26.
+WARNING: Random tag z82Qo7EI8M generated for C_Polarized.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag vktW19ThKI generated for R.
+WARNING: Missing tag on C_Polarized instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:26.
+WARNING: Random tag JYFjF5MsIE generated for C_Polarized.
+WARNING: Missing tag on  instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:56.
+INFO: 143 warnings found while generating netlist.
+INFO: 2 errors found while generating netlist.
+
+WARNING: KiCad ERC found issues in ./gen_blocks.kicad_sch:
+ @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:138=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+INFO: Schematic written to ./gen_blocks.kicad_sch @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:138=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+INFO: 144 warnings found while generating schematic.
+INFO: 2 errors found while generating schematic.
+
+ERROR: No footprint for R_Potentiometer/RV1 added at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:28.
+WARNING: Missing tag on TL074 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:30.
+WARNING: Random tag Ed1j5hwcrz generated for TL074.
+WARNING: Missing tag on R_Potentiometer instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:28.
+WARNING: Random tag WOA0dENkGJ generated for R_Potentiometer.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag 9Ul2XvRtEP generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag Y4QdGAvyTM generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag YSrSNy1HHq generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag _1aqnHuo5n generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag s6GvawtA9F generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag kvqvRUEuop generated for R.
+WARNING: Missing tag on  instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:56.
+INFO: 160 warnings found while generating netlist.
+INFO: 3 errors found while generating netlist.
+
+WARNING: Routing failed on attempt 1/2, expanding area by 1.5x:  @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:150=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+WARNING: Routing failed on attempt 2/2, expanding area by 1.5x:  @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:150=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+ERROR: No footprint for R_Potentiometer/RV1 added at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:28.
+WARNING: Missing tag on TL074 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:30.
+WARNING: Random tag cKObGdjCbh generated for TL074.
+WARNING: Missing tag on TL072 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:29.
+WARNING: Random tag YdCy7uzZpU generated for TL072.
+WARNING: Missing tag on LM13700 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:31.
+WARNING: Random tag 5Och0p3KDq generated for LM13700.
+WARNING: Missing tag on R_Potentiometer instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:28.
+WARNING: Random tag EVZb8eSRhr generated for R_Potentiometer.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag luCUA1cH0X generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag 93dFdbtxhJ generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag 5_4ZlpY4H5 generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag nMjR5d_WE5 generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag DlCBfQxPVu generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag qqHMhgeas1 generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag zOt3Y6Qdmp generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag z7RPuztPcZ generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag I2HIyrtpec generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag O5lJ6Cm_6X generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag tArqozTMuy generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:25.
+WARNING: Random tag 9D87HSuVEu generated for C.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag CXTsNdsLDV generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag Im27k4FjmM generated for R.
+WARNING: Missing tag on C instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:25.
+WARNING: Random tag Fzcels6XAj generated for C.
+WARNING: Missing tag on  instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:56.
+INFO: 199 warnings found while generating netlist.
+INFO: 4 errors found while generating netlist.
+
+WARNING: Routing failed on attempt 1/2, expanding area by 1.5x:  @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:181=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+WARNING: Routing failed on attempt 2/2, expanding area by 1.5x:  @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:181=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+ERROR: No footprint for R_Potentiometer/RV1 added at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:28.
+WARNING: Missing tag on TL072 instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:29.
+WARNING: Random tag oHEQkLlUZP generated for TL072.
+WARNING: Missing tag on R_Potentiometer instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:28.
+WARNING: Random tag IJAeFMzOmA generated for R_Potentiometer.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag _h_bOwqovA generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag pSDeOvAxRx generated for R.
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag 7BtyTeLyn9 generated for R.
+WARNING: Missing tag on  instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:56.
+INFO: 210 warnings found while generating netlist.
+INFO: 5 errors found while generating netlist.
+
+WARNING: KiCad ERC found issues in ./gen_blocks.kicad_sch:
+ @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:191=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+INFO: Schematic written to ./gen_blocks.kicad_sch @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:191=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+INFO: 211 warnings found while generating schematic.
+INFO: 5 errors found while generating schematic.
+
+WARNING: Missing tag on R instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:24.
+WARNING: Random tag AiGfRyHDnY generated for R.
+WARNING: Missing tag on  instantiated at /home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:56.
+INFO: 213 warnings found while generating netlist.
+INFO: 5 errors found while generating netlist.
+
+WARNING: KiCad ERC found issues in ./gen_blocks.kicad_sch:
+ @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:194=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+INFO: Schematic written to ./gen_blocks.kicad_sch @ [/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:194=>/home/dave/dev/angry_squealing_duck/kicad/breadboard/gen_blocks.py:49]
+INFO: 214 warnings found while generating schematic.
+INFO: 5 errors found while generating schematic.
+
